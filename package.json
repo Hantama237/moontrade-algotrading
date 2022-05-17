@@ -1,0 +1,28 @@
+{
+    "name": "moon-trade-algotrading",
+    "dependencies": {
+        "@types/node": "^14.18.13",
+        "candlestick": "0.0.3",
+        "deasync": "^0.1.26",
+        "dotenv": "^16.0.1",
+        "node-binance-api": "^0.13.1",
+        "node-telegram-bot-api": "^0.56.0",
+        "set-interval-async": "^2.0.3",
+        "ta.js": "^1.10.2",
+        "technicalindicators": "^3.1.0",
+        "tulind": "^0.8.20"
+    },
+    "include": [
+        "src/**/*",
+        "src/index.d.ts"
+    ],
+    "scripts": {
+        "start": "ts-node index",
+        "build": "tsc index --outDir build && javascript-obfuscator build/strategy --output build/strategy --compact true --self-defending false",
+        "start-production": "node build/index.js",
+        "backtest": "ts-node backtest/index"
+    },
+    "devDependencies": {
+        "javascript-obfuscator": "^4.0.0"
+    }
+}
