@@ -1,6 +1,8 @@
 # moontrade-algotrading
 Binance algotrading &amp; backtesting tools in typescript.
+
 Write your strategy once, and use it in backtesting and auto trading with zero changes.
+Trade 24 hour carelessly of moon or sun currently above.
 
 First of all, please run this command.
 ```bash
