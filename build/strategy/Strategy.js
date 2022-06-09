@@ -1,1 +1,581 @@
-'use strict';var a0_0x1b5564=a0_0x1863;function a0_0x3eb8(){var _0x98180d=['checkEntry','buy','1018044hzVmhy','985896lsbQnG','StrategyBaseSimplified','calculateIndicators','addIndicator','length','Generator\x20is\x20already\x20executing.','isLongTail','none','../support/Tulind','done','5hvbVdf','generateSignal','tpATRMultiplier','low','riskUSDT','Strategy1h','=======\x20BUY\x20=======\x0a','MyFirstStrategy','ATR:\x20','getEMA','=======\x20','PSAR:\x20','function','slATRMultiplier','toString','separateOHLCtoIndividualArray','getPSAR','abs','otherTimeframe','updateData','\x20=======\x0a','Entry\x20buy\x20potential,\x20pattern\x20detected\x20STOPLOSS:\x20-','getIndicator','104vUuSim','chandelierexit','Strategy5m','prototype','return','EMA\x2090:\x20','sell','getATROld','pop','riskFiat','atr','1485180jmkYAx','rsi','bbands','StrategyEngulfing','mainTimeframe','getPositionSize','731388vBrAxF','initiateIndicatorsObject','value','create','call','short','__awaiter','Entry\x20sell\x20potential,\x20pattern\x20detected\x20STOPLOSS:\x20-','734135Hfxzst','isHammer','../support/Binance','getOHLCbyIndex','429012CRSirY','getCurrentIndex','186116KedhMM','__generator','isEngulfing','multiplier','CLOSE:\x20','long','close','StrategyTemplate','getChandelierExit','IndicatorsData','push','CandlesData','step','EMA\x20200:\x20','storeOHLC','CandlePattern','isDoji','getMACD','getIndicatorInfo','every','getEMAOld','Entry\x20','ATR\x20:\x20','__esModule','getBB','psarnew','checkTrailing','max','isBullish','psar','ops','toFixed','StrategyTestIndicator','BB\x20Bottom:\x20','BUY','__proto__','ema','rewardRatio','No\x20entry\x20potential','atrnew','label','throw','setPrototypeOf','macd','getRSI','getTakeProfitAndStopLoss','trys','EMA\x2037:\x20','getKC','sent','getPSAROld','Class\x20extends\x20value\x20','signal','getATR','Tulind','updateTrailingStop','exitAfterCandles','OHLCsData','StrategySimplifiedTemplate','CLOSE\x20:\x20','high','SELL','isBearish'];a0_0x3eb8=function(){return _0x98180d;};return a0_0x3eb8();}(function(_0x14f5f1,_0x3229bd){var _0x16b2ca=a0_0x1863,_0x5bd64e=_0x14f5f1();while(!![]){try{var _0xf45b30=parseInt(_0x16b2ca(0x241))/0x1+-parseInt(_0x16b2ca(0x233))/0x2+-parseInt(_0x16b2ca(0x206))/0x3+-parseInt(_0x16b2ca(0x239))/0x4+parseInt(_0x16b2ca(0x211))/0x5*(-parseInt(_0x16b2ca(0x1c3))/0x6)+-parseInt(_0x16b2ca(0x1c5))/0x7+parseInt(_0x16b2ca(0x228))/0x8*(parseInt(_0x16b2ca(0x207))/0x9);if(_0xf45b30===_0x3229bd)break;else _0x5bd64e['push'](_0x5bd64e['shift']());}catch(_0x10d436){_0x5bd64e['push'](_0x5bd64e['shift']());}}}(a0_0x3eb8,0xc22c4));var __extends=this&&this['__extends']||(function(){var _0x3f27b9=function(_0x2a8bf0,_0x23cbc0){var _0x4b74cd=a0_0x1863;return _0x3f27b9=Object[_0x4b74cd(0x1ef)]||{'__proto__':[]}instanceof Array&&function(_0x7368e0,_0x365e0e){var _0x4124fa=_0x4b74cd;_0x7368e0[_0x4124fa(0x1e8)]=_0x365e0e;}||function(_0x14b5fd,_0x5349c6){var _0x196cd7=_0x4b74cd;for(var _0x38290d in _0x5349c6)if(Object[_0x196cd7(0x22b)]['hasOwnProperty'][_0x196cd7(0x23d)](_0x5349c6,_0x38290d))_0x14b5fd[_0x38290d]=_0x5349c6[_0x38290d];},_0x3f27b9(_0x2a8bf0,_0x23cbc0);};return function(_0x34b609,_0x439d4b){var _0x2ddda7=a0_0x1863;if(typeof _0x439d4b!==_0x2ddda7(0x21d)&&_0x439d4b!==null)throw new TypeError(_0x2ddda7(0x1f8)+String(_0x439d4b)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');_0x3f27b9(_0x34b609,_0x439d4b);function _0x343fb4(){this['constructor']=_0x34b609;}_0x34b609['prototype']=_0x439d4b===null?Object[_0x2ddda7(0x23c)](_0x439d4b):(_0x343fb4['prototype']=_0x439d4b[_0x2ddda7(0x22b)],new _0x343fb4());};}()),__awaiter=this&&this[a0_0x1b5564(0x23f)]||function(_0x359fa6,_0x1bd029,_0x3f2385,_0x41ed45){function _0x11d8ad(_0x4c4a85){return _0x4c4a85 instanceof _0x3f2385?_0x4c4a85:new _0x3f2385(function(_0x476405){_0x476405(_0x4c4a85);});}return new(_0x3f2385||(_0x3f2385=Promise))(function(_0x3436eb,_0x328527){function _0x495e24(_0x2576fe){try{_0x2f28b7(_0x41ed45['next'](_0x2576fe));}catch(_0x4badf8){_0x328527(_0x4badf8);}}function _0x559ec1(_0x4c6362){try{_0x2f28b7(_0x41ed45['throw'](_0x4c6362));}catch(_0x6072a6){_0x328527(_0x6072a6);}}function _0x2f28b7(_0x4a35f4){var _0x461c4d=a0_0x1863;_0x4a35f4[_0x461c4d(0x210)]?_0x3436eb(_0x4a35f4[_0x461c4d(0x23b)]):_0x11d8ad(_0x4a35f4[_0x461c4d(0x23b)])['then'](_0x495e24,_0x559ec1);}_0x2f28b7((_0x41ed45=_0x41ed45['apply'](_0x359fa6,_0x1bd029||[]))['next']());});},__generator=this&&this[a0_0x1b5564(0x1c6)]||function(_0x5c7184,_0x4e4f4d){var _0x32dc32=a0_0x1b5564,_0x480b43={'label':0x0,'sent':function(){if(_0x1e628d[0x0]&0x1)throw _0x1e628d[0x1];return _0x1e628d[0x1];},'trys':[],'ops':[]},_0x43287d,_0x4df87e,_0x1e628d,_0xc65ce0;return _0xc65ce0={'next':_0x298f4e(0x0),'throw':_0x298f4e(0x1),'return':_0x298f4e(0x2)},typeof Symbol===_0x32dc32(0x21d)&&(_0xc65ce0[Symbol['iterator']]=function(){return this;}),_0xc65ce0;function _0x298f4e(_0x2d296a){return function(_0x42014e){return _0x253f2f([_0x2d296a,_0x42014e]);};}function _0x253f2f(_0x457428){var _0x5efcbd=_0x32dc32;if(_0x43287d)throw new TypeError(_0x5efcbd(0x20c));while(_0x480b43)try{if(_0x43287d=0x1,_0x4df87e&&(_0x1e628d=_0x457428[0x0]&0x2?_0x4df87e[_0x5efcbd(0x22c)]:_0x457428[0x0]?_0x4df87e[_0x5efcbd(0x1ee)]||((_0x1e628d=_0x4df87e[_0x5efcbd(0x22c)])&&_0x1e628d[_0x5efcbd(0x23d)](_0x4df87e),0x0):_0x4df87e['next'])&&!(_0x1e628d=_0x1e628d[_0x5efcbd(0x23d)](_0x4df87e,_0x457428[0x1]))[_0x5efcbd(0x210)])return _0x1e628d;if(_0x4df87e=0x0,_0x1e628d)_0x457428=[_0x457428[0x0]&0x2,_0x1e628d[_0x5efcbd(0x23b)]];switch(_0x457428[0x0]){case 0x0:case 0x1:_0x1e628d=_0x457428;break;case 0x4:_0x480b43[_0x5efcbd(0x1ed)]++;return{'value':_0x457428[0x1],'done':![]};case 0x5:_0x480b43[_0x5efcbd(0x1ed)]++,_0x4df87e=_0x457428[0x1],_0x457428=[0x0];continue;case 0x7:_0x457428=_0x480b43[_0x5efcbd(0x1e3)][_0x5efcbd(0x230)](),_0x480b43[_0x5efcbd(0x1f3)][_0x5efcbd(0x230)]();continue;default:if(!(_0x1e628d=_0x480b43[_0x5efcbd(0x1f3)],_0x1e628d=_0x1e628d[_0x5efcbd(0x20b)]>0x0&&_0x1e628d[_0x1e628d[_0x5efcbd(0x20b)]-0x1])&&(_0x457428[0x0]===0x6||_0x457428[0x0]===0x2)){_0x480b43=0x0;continue;}if(_0x457428[0x0]===0x3&&(!_0x1e628d||_0x457428[0x1]>_0x1e628d[0x0]&&_0x457428[0x1]<_0x1e628d[0x3])){_0x480b43['label']=_0x457428[0x1];break;}if(_0x457428[0x0]===0x6&&_0x480b43[_0x5efcbd(0x1ed)]<_0x1e628d[0x1]){_0x480b43[_0x5efcbd(0x1ed)]=_0x1e628d[0x1],_0x1e628d=_0x457428;break;}if(_0x1e628d&&_0x480b43[_0x5efcbd(0x1ed)]<_0x1e628d[0x2]){_0x480b43[_0x5efcbd(0x1ed)]=_0x1e628d[0x2],_0x480b43['ops'][_0x5efcbd(0x1cf)](_0x457428);break;}if(_0x1e628d[0x2])_0x480b43[_0x5efcbd(0x1e3)]['pop']();_0x480b43[_0x5efcbd(0x1f3)][_0x5efcbd(0x230)]();continue;}_0x457428=_0x4e4f4d[_0x5efcbd(0x23d)](_0x5c7184,_0x480b43);}catch(_0xc1212e){_0x457428=[0x6,_0xc1212e],_0x4df87e=0x0;}finally{_0x43287d=_0x1e628d=0x0;}if(_0x457428[0x0]&0x5)throw _0x457428[0x1];return{'value':_0x457428[0x0]?_0x457428[0x1]:void 0x0,'done':!![]};}};exports[a0_0x1b5564(0x1dc)]=!![],exports['Strategy5m']=exports[a0_0x1b5564(0x236)]=exports[a0_0x1b5564(0x216)]=exports[a0_0x1b5564(0x218)]=exports['StrategyTestIndicator']=exports['StrategySimplifiedTemplate']=exports[a0_0x1b5564(0x1cc)]=exports['StrategyBaseSimplified']=void 0x0;var Tulind_1=require(a0_0x1b5564(0x20f)),Binance_1=require(a0_0x1b5564(0x243)),CandlePattern_1=require('../detector/CandlePattern'),StrategyBase=(function(){var _0x4ce5b4=a0_0x1b5564;function _0x1fd94d(_0x197245,_0x5480a9){var _0x29e69f=a0_0x1863;this[_0x29e69f(0x1d0)]={},this[_0x29e69f(0x1fe)]={},this['IndicatorsData']={},this[_0x29e69f(0x237)]=_0x197245,this[_0x29e69f(0x223)]=_0x5480a9;}return _0x1fd94d[_0x4ce5b4(0x22b)][_0x4ce5b4(0x1c2)]=function(_0x717919){var _0x34c8e0=_0x4ce5b4,_0x553473={'open':this['OHLCsData'][this[_0x34c8e0(0x237)]]['open'][_0x717919],'high':this[_0x34c8e0(0x1fe)][this[_0x34c8e0(0x237)]][_0x34c8e0(0x201)][_0x717919],'low':this[_0x34c8e0(0x1fe)][this[_0x34c8e0(0x237)]]['low'][_0x717919],'close':this['OHLCsData'][this['mainTimeframe']]['close'][_0x717919]};return _0x553473;},_0x1fd94d['prototype'][_0x4ce5b4(0x1d3)]=function(){var _0xe7c0da=_0x4ce5b4,_0x3348bc=this;this['OHLCsData'][this[_0xe7c0da(0x237)]]=(0x0,Binance_1[_0xe7c0da(0x220)])(this[_0xe7c0da(0x1d0)][this[_0xe7c0da(0x237)]]),this[_0xe7c0da(0x223)]['forEach'](function(_0x371352){var _0x28843e=_0xe7c0da;_0x3348bc[_0x28843e(0x1fe)][_0x371352]=(0x0,Binance_1[_0x28843e(0x220)])(_0x3348bc[_0x28843e(0x1d0)][_0x371352]);});},_0x1fd94d['prototype']['initiateIndicatorsObject']=function(_0x1f4ef4,_0x2c16aa){var _0x5b08e3=_0x4ce5b4;if(this[_0x5b08e3(0x1ce)][_0x1f4ef4]==undefined)this['IndicatorsData'][_0x1f4ef4]={};if(this['IndicatorsData'][_0x1f4ef4][_0x2c16aa]==undefined)this['IndicatorsData'][_0x1f4ef4][_0x2c16aa]={};},_0x1fd94d[_0x4ce5b4(0x22b)][_0x4ce5b4(0x224)]=function(_0x3d2df3){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x5aa320){var _0x3f9f45=a0_0x1863;return this[_0x3f9f45(0x1d0)]=_0x3d2df3,this[_0x3f9f45(0x1d3)](),[0x2];});});},_0x1fd94d[_0x4ce5b4(0x22b)][_0x4ce5b4(0x1df)]=function(_0x53554d,_0x12bbad,_0x58412b){return{'trailed':![],'price':0x0,'removeTP':![]};},_0x1fd94d['prototype']['getIndicatorInfo']=function(){},_0x1fd94d[_0x4ce5b4(0x22b)][_0x4ce5b4(0x212)]=function(_0x42be4a,_0x497665){var _0x2ce966=_0x4ce5b4;if(_0x42be4a)return{'entry':_0x42be4a,'type':_0x497665,'message':_0x2ce966(0x21b)+(_0x497665==_0x2ce966(0x22e)?_0x2ce966(0x202):_0x2ce966(0x1e7))+_0x2ce966(0x225)+this['getIndicatorInfo']()+_0x2ce966(0x1da)+_0x497665+'\x20potential,\x20pattern\x20detected'};else return{'entry':_0x42be4a,'type':_0x497665,'message':this[_0x2ce966(0x1d7)]()+_0x2ce966(0x1eb)};},_0x1fd94d[_0x4ce5b4(0x22b)][_0x4ce5b4(0x1fd)]=function(){return-0x1;},_0x1fd94d;}()),StrategyBaseSimplified=function(_0x4ca5bc){var _0x361f14=a0_0x1b5564;__extends(_0x1500e1,_0x4ca5bc);function _0x1500e1(_0x1d9988,_0x5c6e72,_0x18df48){var _0x541940=a0_0x1863;_0x1d9988===void 0x0&&(_0x1d9988='1h');var _0x57285e=_0x4ca5bc[_0x541940(0x23d)](this,_0x1d9988,[])||this;return _0x57285e[_0x541940(0x231)]=0x1,_0x57285e[_0x541940(0x1ea)]=1.5,_0x57285e['riskFiat']=_0x5c6e72,_0x57285e[_0x541940(0x1ea)]=_0x18df48,_0x57285e;}return _0x1500e1['prototype'][_0x361f14(0x224)]=function(_0x150166){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x1992f6){var _0x10b624=a0_0x1863;switch(_0x1992f6[_0x10b624(0x1ed)]){case 0x0:_0x4ca5bc['prototype'][_0x10b624(0x224)][_0x10b624(0x23d)](this,_0x150166);return[0x4,this['calculateIndicators']()];case 0x1:_0x1992f6[_0x10b624(0x1f6)]();return[0x2,this[_0x10b624(0x204)]()];}});});},_0x1500e1[_0x361f14(0x22b)][_0x361f14(0x209)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x1e5f22){return[0x2];});});},_0x1500e1['prototype']['getIndicatorInfo']=function(){var _0x283e82=_0x361f14,_0xb23034=this[_0x283e82(0x1c4)](),_0x29b39a='CLOSE\x20:\x20'+this[_0x283e82(0x1fe)][this['mainTimeframe']]['close'][_0xb23034]+'\x0a';return _0x29b39a;},_0x1500e1[_0x361f14(0x22b)][_0x361f14(0x204)]=function(){},_0x1500e1['prototype'][_0x361f14(0x1f2)]=function(_0x516943,_0x46ca82){var _0x3a4271=_0x361f14;_0x46ca82===void 0x0&&(_0x46ca82=0x3);var _0x2730bd=this[_0x3a4271(0x1d0)][this[_0x3a4271(0x237)]][_0x3a4271(0x20b)]-0x1,_0x2b06bc=this[_0x3a4271(0x1ce)][this['mainTimeframe']][_0x3a4271(0x232)][_0x2730bd],_0x451199=this[_0x3a4271(0x1fe)][this[_0x3a4271(0x237)]]['close'][_0x2730bd],_0x3b6836=Math[_0x3a4271(0x222)](_0x2b06bc*_0x46ca82+(_0x516943==_0x3a4271(0x22e)?_0x451199:0x0)-(_0x516943==_0x3a4271(0x205)?_0x451199:0x0)),_0x24c868=Math[_0x3a4271(0x222)](_0x2b06bc*_0x46ca82*this[_0x3a4271(0x1ea)]+(_0x516943==_0x3a4271(0x205)?_0x451199:0x0)-(_0x516943==_0x3a4271(0x22e)?_0x451199:0x0));return{'tp':_0x24c868['toFixed'](0x2),'sl':_0x3b6836[_0x3a4271(0x1e4)](0x2)};},_0x1500e1['prototype'][_0x361f14(0x238)]=function(){var _0x3db8a8=_0x361f14,_0x464900=this['CandlesData'][this['mainTimeframe']][_0x3db8a8(0x20b)]-0x1,_0x23c50b=this[_0x3db8a8(0x1fe)][this[_0x3db8a8(0x237)]][_0x3db8a8(0x1cb)][_0x464900],_0x286301=this[_0x3db8a8(0x231)]/Math[_0x3db8a8(0x222)](parseFloat(this[_0x3db8a8(0x1f2)](_0x3db8a8(0x205))['sl'])-parseFloat(_0x23c50b))*_0x23c50b/_0x23c50b;return _0x286301[_0x3db8a8(0x1e4)](0x2);},_0x1500e1[_0x361f14(0x22b)]['addIndicator']=function(_0x10b08f,_0x50b90e){return __awaiter(this,void 0x0,void 0x0,function(){var _0x54547b,_0x4f60af,_0x1f5d9e,_0x8f4f8c,_0x36d004,_0x4a6924,_0xa7bf24,_0x2f6c91,_0x4119f3,_0x555442,_0x36a8b3,_0x1a5be0,_0x13ab05,_0x3c1e19,_0x364a9e,_0x5c5540,_0x4df169,_0xd33861,_0x3b2b88;return __generator(this,function(_0x6ff59f){var _0x1fbd27=a0_0x1863;switch(_0x6ff59f[_0x1fbd27(0x1ed)]){case 0x0:_0x54547b=_0x10b08f;switch(_0x54547b){case _0x1fbd27(0x1e9):return[0x3,0x1];case _0x1fbd27(0x232):return[0x3,0x3];case _0x1fbd27(0x1ec):return[0x3,0x5];case _0x1fbd27(0x1e2):return[0x3,0x7];case _0x1fbd27(0x1de):return[0x3,0x9];case _0x1fbd27(0x234):return[0x3,0xb];case _0x1fbd27(0x1f0):return[0x3,0xd];case'kc':return[0x3,0xf];case'chandelierexit':return[0x3,0x11];}return[0x3,0x13];case 0x1:this[_0x1fbd27(0x23a)](this[_0x1fbd27(0x237)],_0x1fbd27(0x1e9)),_0x4f60af=this[_0x1fbd27(0x1ce)][this[_0x1fbd27(0x237)]]['ema'],_0x1f5d9e=_0x50b90e[_0x1fbd27(0x20b)];return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x21a)](_0x50b90e[_0x1fbd27(0x20b)],this['OHLCsData'][this[_0x1fbd27(0x237)]][_0x1fbd27(0x1cb)])];case 0x2:_0x4f60af[_0x1f5d9e]=_0x6ff59f['sent']();return[0x3,0x14];case 0x3:this[_0x1fbd27(0x23a)](this[_0x1fbd27(0x237)],_0x1fbd27(0x232)),_0x8f4f8c=this['IndicatorsData'][this['mainTimeframe']],_0x36d004='atr';return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x22f)](_0x50b90e[_0x1fbd27(0x20b)],this[_0x1fbd27(0x1fe)][this['mainTimeframe']][_0x1fbd27(0x201)],this[_0x1fbd27(0x1fe)][this[_0x1fbd27(0x237)]]['low'],this[_0x1fbd27(0x1fe)][this[_0x1fbd27(0x237)]]['close'])];case 0x4:_0x8f4f8c[_0x36d004]=_0x6ff59f[_0x1fbd27(0x1f6)]();return[0x3,0x14];case 0x5:this[_0x1fbd27(0x23a)](this['mainTimeframe'],'atr'),_0x4a6924=this[_0x1fbd27(0x1ce)][this[_0x1fbd27(0x237)]],_0xa7bf24=_0x1fbd27(0x232);return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x1fa)](_0x50b90e['length'],this['OHLCsData'][this[_0x1fbd27(0x237)]]['high'],this['OHLCsData'][this['mainTimeframe']][_0x1fbd27(0x214)],this['OHLCsData'][this['mainTimeframe']]['close'])];case 0x6:_0x4a6924[_0xa7bf24]=_0x6ff59f[_0x1fbd27(0x1f6)](),_0x6ff59f[_0x1fbd27(0x1ed)]=0x7;case 0x7:this[_0x1fbd27(0x23a)](this[_0x1fbd27(0x237)],_0x1fbd27(0x1e2)),_0x2f6c91=this[_0x1fbd27(0x1ce)][this[_0x1fbd27(0x237)]],_0x4119f3=_0x1fbd27(0x1e2);return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x1f7)](this[_0x1fbd27(0x1fe)][this['mainTimeframe']]['high'],this[_0x1fbd27(0x1fe)][this[_0x1fbd27(0x237)]][_0x1fbd27(0x214)],_0x50b90e[_0x1fbd27(0x1d1)],_0x50b90e[_0x1fbd27(0x1e0)])];case 0x8:_0x2f6c91[_0x4119f3]=_0x6ff59f[_0x1fbd27(0x1f6)]();return[0x3,0x14];case 0x9:this['initiateIndicatorsObject'](this[_0x1fbd27(0x237)],_0x1fbd27(0x1e2)),_0x555442=this[_0x1fbd27(0x1ce)][this[_0x1fbd27(0x237)]],_0x36a8b3=_0x1fbd27(0x1e2);return[0x4,Tulind_1['Tulind']['getPSAR'](this[_0x1fbd27(0x1fe)][this['mainTimeframe']][_0x1fbd27(0x201)],this['OHLCsData'][this['mainTimeframe']][_0x1fbd27(0x214)],_0x50b90e[_0x1fbd27(0x1d1)],_0x50b90e[_0x1fbd27(0x1e0)])];case 0xa:_0x555442[_0x36a8b3]=_0x6ff59f[_0x1fbd27(0x1f6)]();return[0x3,0x14];case 0xb:this[_0x1fbd27(0x23a)](this[_0x1fbd27(0x237)],'rsi'),_0x1a5be0=this['IndicatorsData'][this[_0x1fbd27(0x237)]],_0x13ab05='rsi';return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x1f1)](_0x50b90e[_0x1fbd27(0x20b)],this[_0x1fbd27(0x1fe)][this[_0x1fbd27(0x237)]]['close'])];case 0xc:_0x1a5be0[_0x13ab05]=_0x6ff59f[_0x1fbd27(0x1f6)]();return[0x3,0x14];case 0xd:this[_0x1fbd27(0x23a)](this[_0x1fbd27(0x237)],_0x1fbd27(0x1f0)),_0x3c1e19=this['IndicatorsData'][this[_0x1fbd27(0x237)]],_0x364a9e='macd';return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x1d6)](_0x50b90e[_0x1fbd27(0x23e)],_0x50b90e[_0x1fbd27(0x1ca)],_0x50b90e[_0x1fbd27(0x1f9)],this[_0x1fbd27(0x1fe)][this['mainTimeframe']][_0x1fbd27(0x1cb)])];case 0xe:_0x3c1e19[_0x364a9e]=_0x6ff59f[_0x1fbd27(0x1f6)](),_0x6ff59f[_0x1fbd27(0x1ed)]=0xf;case 0xf:this[_0x1fbd27(0x23a)](this[_0x1fbd27(0x237)],'kc'),_0x5c5540=this[_0x1fbd27(0x1ce)][this[_0x1fbd27(0x237)]],_0x4df169='kc';return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x1f5)](_0x50b90e[_0x1fbd27(0x20b)],_0x50b90e[_0x1fbd27(0x1c8)],this['OHLCsData'][this['mainTimeframe']][_0x1fbd27(0x201)],this[_0x1fbd27(0x1fe)][this[_0x1fbd27(0x237)]][_0x1fbd27(0x1cb)],this['OHLCsData'][this['mainTimeframe']][_0x1fbd27(0x214)])];case 0x10:_0x5c5540[_0x4df169]=_0x6ff59f[_0x1fbd27(0x1f6)](),_0x6ff59f[_0x1fbd27(0x1ed)]=0x11;case 0x11:this[_0x1fbd27(0x23a)](this[_0x1fbd27(0x237)],_0x1fbd27(0x229)),_0xd33861=this['IndicatorsData'][this[_0x1fbd27(0x237)]],_0x3b2b88='chandelierexit';return[0x4,Tulind_1[_0x1fbd27(0x1fb)][_0x1fbd27(0x1cd)](_0x50b90e[_0x1fbd27(0x20b)],_0x50b90e[_0x1fbd27(0x1c8)],this['OHLCsData'][this[_0x1fbd27(0x237)]]['high'],this[_0x1fbd27(0x1fe)][this[_0x1fbd27(0x237)]][_0x1fbd27(0x1cb)],this[_0x1fbd27(0x1fe)][this[_0x1fbd27(0x237)]][_0x1fbd27(0x214)])];case 0x12:_0xd33861[_0x3b2b88]=_0x6ff59f['sent'](),_0x6ff59f[_0x1fbd27(0x1ed)]=0x13;case 0x13:return[0x3,0x14];case 0x14:return[0x2];}});});},_0x1500e1[_0x361f14(0x22b)][_0x361f14(0x227)]=function(_0x4c2f97,_0x1d08bb,_0x34d56b){var _0x4d3765=_0x361f14;_0x34d56b===void 0x0&&(_0x34d56b=NaN);if(!isNaN(_0x34d56b))return this['IndicatorsData'][this['mainTimeframe']][_0x4c2f97][_0x34d56b][_0x1d08bb];else return this[_0x4d3765(0x1ce)][this[_0x4d3765(0x237)]][_0x4c2f97][_0x1d08bb];},_0x1500e1[_0x361f14(0x22b)][_0x361f14(0x1c4)]=function(){var _0xb3b37a=_0x361f14;return this[_0xb3b37a(0x1d0)][this['mainTimeframe']]['length']-0x1;},_0x1500e1;}(StrategyBase);exports[a0_0x1b5564(0x208)]=StrategyBaseSimplified;var StrategyTemplate=function(_0x2496c1){var _0x344428=a0_0x1b5564;__extends(_0x5f0107,_0x2496c1);function _0x5f0107(){var _0x900fbb=a0_0x1863,_0x68b456=_0x2496c1['call'](this,'5m',[])||this;return _0x68b456[_0x900fbb(0x21e)]=0x1,_0x68b456[_0x900fbb(0x213)]=0x2,_0x68b456[_0x900fbb(0x215)]=0x1,_0x68b456;}return _0x5f0107[_0x344428(0x22b)]['updateData']=function(_0x173d54){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x1ad280){var _0x57a815=a0_0x1863;switch(_0x1ad280[_0x57a815(0x1ed)]){case 0x0:_0x2496c1[_0x57a815(0x22b)][_0x57a815(0x224)]['call'](this,_0x173d54);return[0x4,this['calculateIndicators']()];case 0x1:_0x1ad280[_0x57a815(0x1f6)]();return[0x2,this[_0x57a815(0x204)]()];}});});},_0x5f0107[_0x344428(0x22b)][_0x344428(0x209)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){var _0x42e0b6,_0x54a0e3,_0x54faf8;return __generator(this,function(_0xed3102){var _0x423bf6=a0_0x1863;switch(_0xed3102['label']){case 0x0:this[_0x423bf6(0x23a)](this['mainTimeframe'],_0x423bf6(0x232)),_0x42e0b6=this[_0x423bf6(0x1ce)][this[_0x423bf6(0x237)]][_0x423bf6(0x232)],_0x54a0e3=0xe;return[0x4,Tulind_1[_0x423bf6(0x1fb)]['getATR'](0xe,this[_0x423bf6(0x1fe)][this[_0x423bf6(0x237)]][_0x423bf6(0x201)],this['OHLCsData'][this[_0x423bf6(0x237)]]['low'],this[_0x423bf6(0x1fe)][this['mainTimeframe']][_0x423bf6(0x1cb)])];case 0x1:_0x42e0b6[_0x54a0e3]=_0xed3102[_0x423bf6(0x1f6)]();for(_0x54faf8 in this['otherTimeframe']){};return[0x2];}});});},_0x5f0107['prototype'][_0x344428(0x1d7)]=function(){var _0x5a3345=_0x344428;_0x2496c1['prototype'][_0x5a3345(0x1d7)][_0x5a3345(0x23d)](this);var _0x270153=this['CandlesData'][this[_0x5a3345(0x237)]]['length']-0x1,_0x3c8903='CLOSE\x20:\x20'+this[_0x5a3345(0x1fe)][this['mainTimeframe']][_0x5a3345(0x1cb)][_0x270153]+'\x0a'+_0x5a3345(0x219)+this[_0x5a3345(0x1ce)][this[_0x5a3345(0x237)]][_0x5a3345(0x232)][0xe][_0x270153];return _0x3c8903;},_0x5f0107[_0x344428(0x22b)][_0x344428(0x204)]=function(){var _0x31b637=_0x344428,_0x311bdb=this[_0x31b637(0x1d0)][this[_0x31b637(0x237)]]['length']-0x1,_0xcdf6fb=this['IndicatorsData'][this[_0x31b637(0x237)]]['bbands'][0x1][_0x31b637(0x20b)]-0x1,_0x56e22b=this[_0x31b637(0x1c2)](_0x311bdb-0x1),_0x45daf7=this[_0x31b637(0x1c2)](_0x311bdb),_0x3c1b34=!![],_0x5e0e47=this['IndicatorsData'][this[_0x31b637(0x237)]][_0x31b637(0x1e9)][0x25][_0x311bdb]<this['IndicatorsData'][this[_0x31b637(0x237)]]['ema'][0x5a][_0x311bdb];if(_0x5e0e47){var _0x58f86b=CandlePattern_1[_0x31b637(0x1d4)]['isBearish'](_0x45daf7)&&CandlePattern_1[_0x31b637(0x1d4)][_0x31b637(0x1d5)](_0x56e22b);if(_0x3c1b34&&_0x58f86b)return this['generateSignal'](!![],'sell');}else{var _0x592ff0=CandlePattern_1[_0x31b637(0x1d4)][_0x31b637(0x1e1)](_0x45daf7)&&CandlePattern_1[_0x31b637(0x1d4)][_0x31b637(0x1d5)](_0x56e22b);if(_0x3c1b34&&_0x592ff0)return this[_0x31b637(0x212)](!![],_0x31b637(0x205));}return this[_0x31b637(0x212)](![],_0x31b637(0x20e));},_0x5f0107[_0x344428(0x22b)][_0x344428(0x1f2)]=function(_0x527799){var _0x3bd79d=_0x344428;_0x527799===void 0x0&&(_0x527799=_0x3bd79d(0x205));var _0x3f12f1=this[_0x3bd79d(0x1d0)][this[_0x3bd79d(0x237)]][_0x3bd79d(0x20b)]-0x1,_0x5b8228=this[_0x3bd79d(0x1ce)][this[_0x3bd79d(0x237)]]['atr'][0xe][_0x3f12f1],_0x971278=this['OHLCsData'][this[_0x3bd79d(0x237)]][_0x3bd79d(0x1cb)][_0x3f12f1],_0x4909a2=Math[_0x3bd79d(0x222)](_0x5b8228*this[_0x3bd79d(0x21e)]+(_0x527799==_0x3bd79d(0x22e)?_0x971278:0x0)-(_0x527799==_0x3bd79d(0x205)?_0x971278:0x0)),_0x5b3e5d=Math['abs'](_0x5b8228*this[_0x3bd79d(0x213)]+(_0x527799==_0x3bd79d(0x205)?_0x971278:0x0)-(_0x527799==_0x3bd79d(0x22e)?_0x971278:0x0));return{'tp':_0x5b3e5d['toFixed'](0x2),'sl':_0x4909a2['toFixed'](0x2)};},_0x5f0107['prototype']['getPositionSize']=function(){var _0x1a84cd=_0x344428,_0x262059=this[_0x1a84cd(0x1d0)][this['mainTimeframe']]['length']-0x1,_0x50f42a=this[_0x1a84cd(0x1fe)][this['mainTimeframe']]['close'][_0x262059],_0x5cf663=this[_0x1a84cd(0x1f2)](),_0x2ac64c=this[_0x1a84cd(0x215)]/Math[_0x1a84cd(0x222)](parseFloat(_0x5cf663['sl'])-parseFloat(_0x50f42a))*_0x50f42a/_0x50f42a;return _0x2ac64c[_0x1a84cd(0x1e4)](0x2)[_0x1a84cd(0x21f)]();},_0x5f0107[_0x344428(0x22b)][_0x344428(0x1fc)]=function(){},_0x5f0107;}(StrategyBase);exports['StrategyTemplate']=StrategyTemplate;var StrategySimplifiedTemplate=function(_0x403187){var _0x466143=a0_0x1b5564;__extends(_0x217be5,_0x403187);function _0x217be5(){var _0x207271=a0_0x1863;return _0x403187[_0x207271(0x23d)](this,'1h',0x1,1.33)||this;}return _0x217be5[_0x466143(0x22b)]['getIndicatorInfo']=function(){var _0x23b060=_0x466143,_0x36f4f2=this[_0x23b060(0x1c4)](),_0x2cd7eb=_0x403187[_0x23b060(0x22b)][_0x23b060(0x1d7)][_0x23b060(0x23d)](this);return _0x2cd7eb;},_0x217be5[_0x466143(0x22b)][_0x466143(0x209)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x334880){var _0x102b55=a0_0x1863;switch(_0x334880[_0x102b55(0x1ed)]){case 0x0:return[0x4,_0x403187['prototype'][_0x102b55(0x20a)]['call'](this,_0x102b55(0x232),{'length':0xe})];case 0x1:_0x334880['sent']();return[0x4,_0x403187[_0x102b55(0x22b)][_0x102b55(0x20a)]['call'](this,_0x102b55(0x1e9),{'length':0x25})];case 0x2:_0x334880[_0x102b55(0x1f6)]();return[0x4,_0x403187[_0x102b55(0x22b)][_0x102b55(0x20a)][_0x102b55(0x23d)](this,_0x102b55(0x1e9),{'length':0x5a})];case 0x3:_0x334880[_0x102b55(0x1f6)]();return[0x2];}});});},_0x217be5[_0x466143(0x22b)][_0x466143(0x204)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){var _0x4c405b,_0x53e334,_0x459361,_0x26db43,_0x53f456;return __generator(this,function(_0x4a3603){var _0x33d49c=a0_0x1863;_0x4c405b=this[_0x33d49c(0x1c4)](),_0x53e334=[],_0x459361=[this[_0x33d49c(0x227)](_0x33d49c(0x1e9),_0x4c405b,0x25)<this[_0x33d49c(0x227)]('ema',_0x4c405b,0x5a)];if(_0x459361['every'](Boolean)){_0x26db43=[CandlePattern_1['CandlePattern']['isEngulfing'](this[_0x33d49c(0x1c2)](_0x4c405b-0x1),this[_0x33d49c(0x1c2)](_0x4c405b),!![])];if(_0x26db43['every'](Boolean))return[0x2,this['generateSignal'](!![],_0x33d49c(0x22e))];}else{_0x53f456=[CandlePattern_1[_0x33d49c(0x1d4)][_0x33d49c(0x1c7)](this['getOHLCbyIndex'](_0x4c405b-0x1),this[_0x33d49c(0x1c2)](_0x4c405b))];if(_0x53f456[_0x33d49c(0x1d8)](Boolean))return[0x2,this['generateSignal'](!![],_0x33d49c(0x205))];}return[0x2,this[_0x33d49c(0x212)](![],_0x33d49c(0x20e))];});});},_0x217be5[_0x466143(0x22b)][_0x466143(0x1f2)]=function(_0x4a2f2f){var _0x52cba0=_0x466143;return _0x403187['prototype'][_0x52cba0(0x1f2)][_0x52cba0(0x23d)](this,_0x4a2f2f,0x3);},_0x217be5[_0x466143(0x22b)][_0x466143(0x238)]=function(){var _0x182fea=_0x466143;return _0x403187[_0x182fea(0x22b)][_0x182fea(0x238)][_0x182fea(0x23d)](this);},_0x217be5;}(StrategyBaseSimplified);exports[a0_0x1b5564(0x1ff)]=StrategySimplifiedTemplate;var StrategyTestIndicator=function(_0x3a8628){var _0x316659=a0_0x1b5564;__extends(_0x1c16b7,_0x3a8628);function _0x1c16b7(){var _0x466e20=a0_0x1863;return _0x3a8628[_0x466e20(0x23d)](this,'5m',0x1,1.33)||this;}return _0x1c16b7[_0x316659(0x22b)][_0x316659(0x1d7)]=function(){var _0x385f36=_0x316659,_0x3692f5=this[_0x385f36(0x1c4)](),_0x32ccfc=_0x3a8628[_0x385f36(0x22b)][_0x385f36(0x1d7)][_0x385f36(0x23d)](this);return _0x32ccfc+='CExit\x20:\x20'+this[_0x385f36(0x227)](_0x385f36(0x229),0x0)[_0x3692f5]+',\x20'+this[_0x385f36(0x227)]('chandelierexit',0x1)[_0x3692f5]+',\x20'+this[_0x385f36(0x227)](_0x385f36(0x229),0x2)[_0x3692f5]+'\x0a',_0x32ccfc+=_0x385f36(0x1db)+this[_0x385f36(0x227)]('atr',_0x3692f5)+'\x0a',_0x32ccfc;},_0x1c16b7[_0x316659(0x22b)][_0x316659(0x209)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x5732ab){var _0x3418b7=a0_0x1863;switch(_0x5732ab[_0x3418b7(0x1ed)]){case 0x0:return[0x4,_0x3a8628[_0x3418b7(0x22b)][_0x3418b7(0x20a)][_0x3418b7(0x23d)](this,_0x3418b7(0x232),{'length':0xe})];case 0x1:_0x5732ab[_0x3418b7(0x1f6)]();return[0x4,_0x3a8628[_0x3418b7(0x22b)][_0x3418b7(0x20a)]['call'](this,_0x3418b7(0x1e9),{'length':0x25})];case 0x2:_0x5732ab[_0x3418b7(0x1f6)]();return[0x4,_0x3a8628[_0x3418b7(0x22b)][_0x3418b7(0x20a)]['call'](this,_0x3418b7(0x1e9),{'length':0x5a})];case 0x3:_0x5732ab[_0x3418b7(0x1f6)]();return[0x4,_0x3a8628[_0x3418b7(0x22b)]['addIndicator'][_0x3418b7(0x23d)](this,_0x3418b7(0x229),{'length':0x1,'multiplier':0x2})];case 0x4:_0x5732ab[_0x3418b7(0x1f6)]();return[0x2];}});});},_0x1c16b7[_0x316659(0x22b)][_0x316659(0x204)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){var _0x1618b9,_0x5d0690,_0x459289,_0xecf736;return __generator(this,function(_0x7a3152){var _0x2cab7c=a0_0x1863;_0x1618b9=this[_0x2cab7c(0x1c4)](),_0x5d0690=[!![],Math[_0x2cab7c(0x222)](this['getIndicator'](_0x2cab7c(0x1e9),_0x1618b9,0x25)-this[_0x2cab7c(0x227)](_0x2cab7c(0x1e9),_0x1618b9,0x5a))>this['getIndicator'](_0x2cab7c(0x232),_0x1618b9)*0x2];if(this[_0x2cab7c(0x1c2)](_0x1618b9)[_0x2cab7c(0x214)]>this['getIndicator'](_0x2cab7c(0x1e9),_0x1618b9,0x5a)){_0x459289=[this[_0x2cab7c(0x227)](_0x2cab7c(0x229),0x1)[_0x1618b9]<this['getOHLCbyIndex'](_0x1618b9)[_0x2cab7c(0x1cb)],this[_0x2cab7c(0x227)](_0x2cab7c(0x229),0x1)[_0x1618b9]>this['getOHLCbyIndex'](_0x1618b9)[_0x2cab7c(0x214)],CandlePattern_1[_0x2cab7c(0x1d4)][_0x2cab7c(0x1d5)](this['getOHLCbyIndex'](_0x1618b9-0x1))&&CandlePattern_1[_0x2cab7c(0x1d4)][_0x2cab7c(0x1e1)](this['getOHLCbyIndex'](_0x1618b9))||CandlePattern_1['CandlePattern'][_0x2cab7c(0x1c7)](this['getOHLCbyIndex'](_0x1618b9-0x1),this[_0x2cab7c(0x1c2)](_0x1618b9),![])];if(_0x459289[_0x2cab7c(0x1d8)](Boolean)&&_0x5d0690[_0x2cab7c(0x1d8)](Boolean))return[0x2,this[_0x2cab7c(0x212)](!![],_0x2cab7c(0x205))];}else{if(this[_0x2cab7c(0x1c2)](_0x1618b9)[_0x2cab7c(0x201)]<this[_0x2cab7c(0x227)](_0x2cab7c(0x1e9),_0x1618b9,0x5a)){_0xecf736=[this[_0x2cab7c(0x227)]('chandelierexit',0x0)[_0x1618b9]>this[_0x2cab7c(0x1c2)](_0x1618b9)[_0x2cab7c(0x1cb)],this[_0x2cab7c(0x227)](_0x2cab7c(0x229),0x0)[_0x1618b9]<this[_0x2cab7c(0x1c2)](_0x1618b9)[_0x2cab7c(0x201)],CandlePattern_1[_0x2cab7c(0x1d4)][_0x2cab7c(0x1d5)](this[_0x2cab7c(0x1c2)](_0x1618b9-0x1))&&CandlePattern_1[_0x2cab7c(0x1d4)][_0x2cab7c(0x203)](this[_0x2cab7c(0x1c2)](_0x1618b9))||CandlePattern_1[_0x2cab7c(0x1d4)][_0x2cab7c(0x1c7)](this['getOHLCbyIndex'](_0x1618b9-0x1),this[_0x2cab7c(0x1c2)](_0x1618b9),!![])];if(_0xecf736['every'](Boolean)&&_0x5d0690['every'](Boolean))return[0x2,this[_0x2cab7c(0x212)](!![],_0x2cab7c(0x22e))];}}return[0x2,this[_0x2cab7c(0x212)](![],_0x2cab7c(0x20e))];});});},_0x1c16b7[_0x316659(0x22b)][_0x316659(0x1f2)]=function(_0x3a6a55){var _0xfef97e=_0x316659;return _0x3a8628[_0xfef97e(0x22b)][_0xfef97e(0x1f2)]['call'](this,_0x3a6a55,0x3);},_0x1c16b7['prototype'][_0x316659(0x238)]=function(){var _0x59c312=_0x316659;return _0x3a8628[_0x59c312(0x22b)]['getPositionSize'][_0x59c312(0x23d)](this);},_0x1c16b7['prototype']['exitAfterCandles']=function(){return 0x14;},_0x1c16b7;}(StrategyBaseSimplified);exports[a0_0x1b5564(0x1e5)]=StrategyTestIndicator;var MyFirstStrategy=function(_0x59f40b){var _0x488a40=a0_0x1b5564;__extends(_0x597831,_0x59f40b);function _0x597831(){var _0x3c2c12=a0_0x1863,_0x2bd79b=_0x59f40b[_0x3c2c12(0x23d)](this,'1h',[])||this;return _0x2bd79b[_0x3c2c12(0x21e)]=3.1,_0x2bd79b['tpATRMultiplier']=0x7,_0x2bd79b[_0x3c2c12(0x231)]=0x1,_0x2bd79b;}return _0x597831[_0x488a40(0x22b)][_0x488a40(0x224)]=function(_0x56904a){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x8906fe){var _0x53c734=a0_0x1863;switch(_0x8906fe[_0x53c734(0x1ed)]){case 0x0:_0x59f40b[_0x53c734(0x22b)]['updateData'][_0x53c734(0x23d)](this,_0x56904a);return[0x4,this[_0x53c734(0x209)]()];case 0x1:_0x8906fe[_0x53c734(0x1f6)]();return[0x2,this['checkEntry']()];}});});},_0x597831[_0x488a40(0x22b)][_0x488a40(0x209)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){var _0x4fe65d,_0x4f0640,_0x5449f7,_0x154c08,_0x5397e2,_0x14a4dd,_0x318a05,_0x562fab,_0x2550a5,_0x2d7e4a,_0x73163d,_0xfd9af1,_0x141e9f,_0x2fd22c,_0x2a7ede,_0x41ed44;return __generator(this,function(_0x2b9091){var _0x56cdc1=a0_0x1863;switch(_0x2b9091[_0x56cdc1(0x1ed)]){case 0x0:this[_0x56cdc1(0x23a)](this[_0x56cdc1(0x237)],_0x56cdc1(0x1e9)),this[_0x56cdc1(0x23a)](this['mainTimeframe'],'atr'),this['initiateIndicatorsObject'](this['mainTimeframe'],'psar'),_0x4fe65d=this[_0x56cdc1(0x1ce)][this[_0x56cdc1(0x237)]][_0x56cdc1(0x1e9)],_0x4f0640=0x25;return[0x4,Tulind_1[_0x56cdc1(0x1fb)][_0x56cdc1(0x21a)](0x25,this[_0x56cdc1(0x1fe)][this[_0x56cdc1(0x237)]][_0x56cdc1(0x1cb)])];case 0x1:_0x4fe65d[_0x4f0640]=_0x2b9091[_0x56cdc1(0x1f6)](),_0x5449f7=this[_0x56cdc1(0x1ce)][this[_0x56cdc1(0x237)]][_0x56cdc1(0x1e9)],_0x154c08=0xc8;return[0x4,Tulind_1[_0x56cdc1(0x1fb)][_0x56cdc1(0x21a)](0x64,this[_0x56cdc1(0x1fe)][this[_0x56cdc1(0x237)]][_0x56cdc1(0x1cb)])];case 0x2:_0x5449f7[_0x154c08]=_0x2b9091[_0x56cdc1(0x1f6)](),_0x5397e2=this[_0x56cdc1(0x1ce)][this[_0x56cdc1(0x237)]][_0x56cdc1(0x232)],_0x14a4dd=0xe;return[0x4,Tulind_1[_0x56cdc1(0x1fb)][_0x56cdc1(0x1fa)](0xe,this[_0x56cdc1(0x1fe)][this[_0x56cdc1(0x237)]][_0x56cdc1(0x201)],this[_0x56cdc1(0x1fe)][this[_0x56cdc1(0x237)]][_0x56cdc1(0x214)],this['OHLCsData'][this[_0x56cdc1(0x237)]][_0x56cdc1(0x1cb)])];case 0x3:_0x5397e2[_0x14a4dd]=_0x2b9091['sent'](),_0x318a05=this['IndicatorsData'][this[_0x56cdc1(0x237)]],_0x562fab='psar';return[0x4,Tulind_1['Tulind'][_0x56cdc1(0x221)](this[_0x56cdc1(0x1fe)][this['mainTimeframe']][_0x56cdc1(0x201)],this[_0x56cdc1(0x1fe)][this[_0x56cdc1(0x237)]]['low'],0.02,0.03)];case 0x4:_0x318a05[_0x562fab]=_0x2b9091['sent'](),_0x2550a5=[];for(_0x2d7e4a in this[_0x56cdc1(0x223)])_0x2550a5['push'](_0x2d7e4a);_0x73163d=0x0,_0x2b9091[_0x56cdc1(0x1ed)]=0x5;case 0x5:if(!(_0x73163d<_0x2550a5['length']))return[0x3,0x9];_0xfd9af1=_0x2550a5[_0x73163d],this[_0x56cdc1(0x23a)](_0xfd9af1,'ema'),_0x141e9f=this[_0x56cdc1(0x1ce)][_0xfd9af1]['ema'],_0x2fd22c=0x25;return[0x4,Tulind_1['Tulind'][_0x56cdc1(0x21a)](0x25,this[_0x56cdc1(0x1fe)][_0xfd9af1][_0x56cdc1(0x1cb)])];case 0x6:_0x141e9f[_0x2fd22c]=_0x2b9091[_0x56cdc1(0x1f6)](),_0x2a7ede=this[_0x56cdc1(0x1ce)][_0xfd9af1][_0x56cdc1(0x1e9)],_0x41ed44=0xc8;return[0x4,Tulind_1['Tulind']['getEMA'](0xc8,this[_0x56cdc1(0x1fe)][_0xfd9af1][_0x56cdc1(0x1cb)])];case 0x7:_0x2a7ede[_0x41ed44]=_0x2b9091[_0x56cdc1(0x1f6)](),_0x2b9091[_0x56cdc1(0x1ed)]=0x8;case 0x8:_0x73163d++;return[0x3,0x5];case 0x9:return[0x2];}});});},_0x597831[_0x488a40(0x22b)][_0x488a40(0x204)]=function(){var _0x34b0c3=_0x488a40,_0x524e00=this[_0x34b0c3(0x1d0)][this['mainTimeframe']]['length']-0x1,_0x226d75=this[_0x34b0c3(0x1c2)](_0x524e00-0x1),_0xa67e=this['getOHLCbyIndex'](_0x524e00),_0xc51efb=_0x34b0c3(0x1c9)+_0xa67e[_0x34b0c3(0x1cb)]+'\x0a'+_0x34b0c3(0x1d2)+this['IndicatorsData'][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e9)][0xc8][_0x524e00][_0x34b0c3(0x1e4)](0x2)+'\x0a'+'EMA\x2037:\x20'+this[_0x34b0c3(0x1ce)][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e9)][0x25][_0x524e00][_0x34b0c3(0x1e4)](0x2)+'\x0a'+_0x34b0c3(0x21c)+this['IndicatorsData'][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e2)][_0x524e00-0x1][_0x34b0c3(0x1e4)](0x2)+'\x0a',_0x35c6ef=Math[_0x34b0c3(0x222)](_0xa67e['close']-this[_0x34b0c3(0x1ce)][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e9)][0x25][_0x524e00])<this[_0x34b0c3(0x1ce)][this['mainTimeframe']]['atr'][0xe][_0x524e00]*0x1;if(this['IndicatorsData'][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e9)][0x25][_0x524e00]<this[_0x34b0c3(0x1ce)][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e9)][0xc8][_0x524e00]){var _0x2c967a=_0xa67e[_0x34b0c3(0x201)]<this[_0x34b0c3(0x1ce)][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e2)][_0x524e00-0x1];if(_0x35c6ef&&_0x2c967a&&(CandlePattern_1['CandlePattern'][_0x34b0c3(0x1d5)](_0x226d75)||CandlePattern_1[_0x34b0c3(0x1d4)][_0x34b0c3(0x242)](_0x226d75,!![]))&&CandlePattern_1[_0x34b0c3(0x1d4)][_0x34b0c3(0x20d)](_0xa67e,!![]))return{'entry':!![],'type':_0x34b0c3(0x22e),'message':'=======\x20SELL\x20=======\x0a'+_0xc51efb+_0x34b0c3(0x240)+this[_0x34b0c3(0x1ce)][this['mainTimeframe']][_0x34b0c3(0x232)][0xe][_0x524e00]*0x2};}else{var _0x2c967a=_0xa67e['low']>this[_0x34b0c3(0x1ce)][this[_0x34b0c3(0x237)]][_0x34b0c3(0x1e2)][_0x524e00-0x1];if(_0x35c6ef&&_0x2c967a&&(CandlePattern_1[_0x34b0c3(0x1d4)][_0x34b0c3(0x1d5)](_0x226d75)||CandlePattern_1[_0x34b0c3(0x1d4)][_0x34b0c3(0x242)](_0x226d75))&&CandlePattern_1['CandlePattern'][_0x34b0c3(0x20d)](_0xa67e))return{'entry':!![],'type':_0x34b0c3(0x205),'message':_0x34b0c3(0x217)+_0xc51efb+_0x34b0c3(0x226)+this['IndicatorsData'][this[_0x34b0c3(0x237)]][_0x34b0c3(0x232)][0xe][_0x524e00]*0x2};}return{'entry':![],'type':_0x34b0c3(0x20e),'message':_0xc51efb+_0x34b0c3(0x1eb)};},_0x597831[_0x488a40(0x22b)][_0x488a40(0x1f2)]=function(_0x135c8e){var _0x3c98db=_0x488a40,_0xf51f83=this[_0x3c98db(0x1d0)][this[_0x3c98db(0x237)]]['length']-0x1,_0x33bf6a=this['IndicatorsData'][this[_0x3c98db(0x237)]][_0x3c98db(0x232)][0xe][_0xf51f83],_0x417687=this[_0x3c98db(0x1fe)][this[_0x3c98db(0x237)]][_0x3c98db(0x1cb)][_0xf51f83],_0x3f2bb2=Math[_0x3c98db(0x222)](_0x33bf6a*this[_0x3c98db(0x21e)]+(_0x135c8e==_0x3c98db(0x22e)?_0x417687:0x0)-(_0x135c8e==_0x3c98db(0x205)?_0x417687:0x0)),_0x2d8947=Math[_0x3c98db(0x222)](_0x33bf6a*this[_0x3c98db(0x213)]+(_0x135c8e=='buy'?_0x417687:0x0)-(_0x135c8e==_0x3c98db(0x22e)?_0x417687:0x0));return{'tp':_0x2d8947[_0x3c98db(0x1e4)](0x2),'sl':_0x3f2bb2[_0x3c98db(0x1e4)](0x2)};},_0x597831[_0x488a40(0x22b)]['getPositionSize']=function(){var _0x17c33a=_0x488a40,_0x5fb08=this[_0x17c33a(0x1d0)][this[_0x17c33a(0x237)]][_0x17c33a(0x20b)]-0x1,_0x2f5c9b=this[_0x17c33a(0x1fe)][this[_0x17c33a(0x237)]]['close'][_0x5fb08],_0xd71964=this[_0x17c33a(0x231)]/Math['abs'](parseFloat(this['getTakeProfitAndStopLoss'](_0x17c33a(0x205))['sl'])-parseFloat(_0x2f5c9b))*_0x2f5c9b/_0x2f5c9b;return _0xd71964[_0x17c33a(0x1e4)](0x2)[_0x17c33a(0x21f)]();},_0x597831[_0x488a40(0x22b)][_0x488a40(0x1d7)]=function(){var _0x405729=_0x488a40,_0x2c7bf1=this[_0x405729(0x1d0)][this['mainTimeframe']]['length']-0x1,_0x189f3a=_0x405729(0x200)+this['OHLCsData'][this[_0x405729(0x237)]]['close'][_0x2c7bf1]+'\x0a'+'EMA\x20200:\x20'+this[_0x405729(0x1ce)][this[_0x405729(0x237)]][_0x405729(0x1e9)][0xc8][_0x2c7bf1][_0x405729(0x1e4)](0x2)+'\x0a'+_0x405729(0x1f4)+this[_0x405729(0x1ce)][this[_0x405729(0x237)]][_0x405729(0x1e9)][0x25][_0x2c7bf1]['toFixed'](0x2)+'\x0a'+_0x405729(0x21c)+this['IndicatorsData'][this['mainTimeframe']][_0x405729(0x1e2)][_0x2c7bf1-0x1][_0x405729(0x1e4)](0x2)+'\x0a'+'ATR:\x20'+this[_0x405729(0x1ce)][this[_0x405729(0x237)]][_0x405729(0x232)][0xe][_0x2c7bf1];return _0x189f3a;},_0x597831;}(StrategyBase);exports[a0_0x1b5564(0x218)]=MyFirstStrategy;function a0_0x1863(_0x2a81bc,_0x2be9af){var _0x3eb8eb=a0_0x3eb8();return a0_0x1863=function(_0x1863f7,_0x50e4cc){_0x1863f7=_0x1863f7-0x1c2;var _0x4e42ab=_0x3eb8eb[_0x1863f7];return _0x4e42ab;},a0_0x1863(_0x2a81bc,_0x2be9af);}var Strategy1h=function(_0x4fcd34){var _0x11dc61=a0_0x1b5564;__extends(_0x1a1729,_0x4fcd34);function _0x1a1729(){var _0x4f372e=a0_0x1863,_0xef707d=_0x4fcd34[_0x4f372e(0x23d)](this,'1h',[])||this;return _0xef707d[_0x4f372e(0x21e)]=3.3,_0xef707d[_0x4f372e(0x213)]=6.7,_0xef707d['riskFiat']=0x1,_0xef707d;}return _0x1a1729[_0x11dc61(0x22b)]['updateData']=function(_0x2c89b9){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x3d2911){var _0x4f7804=a0_0x1863;switch(_0x3d2911[_0x4f7804(0x1ed)]){case 0x0:_0x4fcd34[_0x4f7804(0x22b)]['updateData'][_0x4f7804(0x23d)](this,_0x2c89b9);return[0x4,this[_0x4f7804(0x209)]()];case 0x1:_0x3d2911['sent']();return[0x2,this[_0x4f7804(0x204)]()];}});});},_0x1a1729[_0x11dc61(0x22b)]['calculateIndicators']=function(){return __awaiter(this,void 0x0,void 0x0,function(){var _0x40314a,_0x5447ff,_0x2383a6,_0x36a541,_0x2b63c0,_0x8a0669,_0x22e324,_0xd1b76d,_0x3b765d,_0x394230,_0x3abd50,_0x1b6ead,_0xb51334,_0x334d17,_0xeeaee0,_0x5847e8;return __generator(this,function(_0x488d9a){var _0x375194=a0_0x1863;switch(_0x488d9a[_0x375194(0x1ed)]){case 0x0:this[_0x375194(0x23a)](this[_0x375194(0x237)],_0x375194(0x1e9)),this[_0x375194(0x23a)](this[_0x375194(0x237)],_0x375194(0x232)),this['initiateIndicatorsObject'](this[_0x375194(0x237)],_0x375194(0x1e2)),_0x40314a=this[_0x375194(0x1ce)][this[_0x375194(0x237)]][_0x375194(0x1e9)],_0x5447ff=0x25;return[0x4,Tulind_1['Tulind'][_0x375194(0x1d9)](0x25,this[_0x375194(0x1fe)][this[_0x375194(0x237)]][_0x375194(0x1cb)])];case 0x1:_0x40314a[_0x5447ff]=_0x488d9a[_0x375194(0x1f6)](),_0x2383a6=this[_0x375194(0x1ce)][this[_0x375194(0x237)]][_0x375194(0x1e9)],_0x36a541=0xc8;return[0x4,Tulind_1['Tulind'][_0x375194(0x1d9)](0x5a,this[_0x375194(0x1fe)][this[_0x375194(0x237)]][_0x375194(0x1cb)])];case 0x2:_0x2383a6[_0x36a541]=_0x488d9a[_0x375194(0x1f6)](),_0x2b63c0=this['IndicatorsData'][this[_0x375194(0x237)]]['atr'],_0x8a0669=0xe;return[0x4,Tulind_1[_0x375194(0x1fb)][_0x375194(0x22f)](0xe,this[_0x375194(0x1fe)][this[_0x375194(0x237)]][_0x375194(0x201)],this[_0x375194(0x1fe)][this['mainTimeframe']][_0x375194(0x214)],this['OHLCsData'][this[_0x375194(0x237)]]['close'])];case 0x3:_0x2b63c0[_0x8a0669]=_0x488d9a[_0x375194(0x1f6)](),_0x22e324=this[_0x375194(0x1ce)][this['mainTimeframe']],_0xd1b76d=_0x375194(0x1e2);return[0x4,Tulind_1[_0x375194(0x1fb)][_0x375194(0x1f7)](this[_0x375194(0x1fe)][this['mainTimeframe']]['high'],this['OHLCsData'][this['mainTimeframe']][_0x375194(0x214)],0.02,0.03)];case 0x4:_0x22e324[_0xd1b76d]=_0x488d9a['sent'](),_0x3b765d=[];for(_0x394230 in this['otherTimeframe'])_0x3b765d[_0x375194(0x1cf)](_0x394230);_0x3abd50=0x0,_0x488d9a[_0x375194(0x1ed)]=0x5;case 0x5:if(!(_0x3abd50<_0x3b765d[_0x375194(0x20b)]))return[0x3,0x9];_0x1b6ead=_0x3b765d[_0x3abd50],this['initiateIndicatorsObject'](_0x1b6ead,_0x375194(0x1e9)),_0xb51334=this[_0x375194(0x1ce)][_0x1b6ead][_0x375194(0x1e9)],_0x334d17=0x25;return[0x4,Tulind_1[_0x375194(0x1fb)]['getEMAOld'](0x25,this[_0x375194(0x1fe)][_0x1b6ead][_0x375194(0x1cb)])];case 0x6:_0xb51334[_0x334d17]=_0x488d9a['sent'](),_0xeeaee0=this[_0x375194(0x1ce)][_0x1b6ead][_0x375194(0x1e9)],_0x5847e8=0xc8;return[0x4,Tulind_1['Tulind'][_0x375194(0x1d9)](0xc8,this[_0x375194(0x1fe)][_0x1b6ead][_0x375194(0x1cb)])];case 0x7:_0xeeaee0[_0x5847e8]=_0x488d9a[_0x375194(0x1f6)](),_0x488d9a[_0x375194(0x1ed)]=0x8;case 0x8:_0x3abd50++;return[0x3,0x5];case 0x9:;return[0x2];}});});},_0x1a1729[_0x11dc61(0x22b)]['getIndicatorInfo']=function(){var _0x441b72=_0x11dc61,_0x2ee2e2=this[_0x441b72(0x1d0)][this[_0x441b72(0x237)]][_0x441b72(0x20b)]-0x1,_0x280f5c=_0x441b72(0x200)+this['OHLCsData'][this[_0x441b72(0x237)]]['close'][_0x2ee2e2]+'\x0a'+_0x441b72(0x1d2)+this[_0x441b72(0x1ce)][this[_0x441b72(0x237)]][_0x441b72(0x1e9)][0xc8][_0x2ee2e2]['toFixed'](0x2)+'\x0a'+_0x441b72(0x1f4)+this['IndicatorsData'][this[_0x441b72(0x237)]][_0x441b72(0x1e9)][0x25][_0x2ee2e2][_0x441b72(0x1e4)](0x2)+'\x0a'+_0x441b72(0x21c)+this[_0x441b72(0x1ce)][this[_0x441b72(0x237)]][_0x441b72(0x1e2)][_0x2ee2e2-0x1]['toFixed'](0x2)+'\x0a'+_0x441b72(0x219)+this[_0x441b72(0x1ce)][this[_0x441b72(0x237)]][_0x441b72(0x232)][0xe][_0x2ee2e2]+'\x0a';return _0x280f5c;},_0x1a1729[_0x11dc61(0x22b)][_0x11dc61(0x204)]=function(){var _0x3abf90=_0x11dc61,_0x5b4233=this['CandlesData'][this[_0x3abf90(0x237)]][_0x3abf90(0x20b)]-0x1,_0xfa5801=this[_0x3abf90(0x1c2)](_0x5b4233-0x1),_0x2b24de=this[_0x3abf90(0x1c2)](_0x5b4233),_0x105562=Math[_0x3abf90(0x222)](_0xfa5801[_0x3abf90(0x1cb)]-this[_0x3abf90(0x1ce)][this[_0x3abf90(0x237)]]['ema'][0x25][_0x5b4233])<this['IndicatorsData'][this['mainTimeframe']][_0x3abf90(0x232)][0xe][_0x5b4233]*0x1,_0x419bdb=Math[_0x3abf90(0x222)](_0x2b24de[_0x3abf90(0x1cb)]-this['IndicatorsData'][this[_0x3abf90(0x237)]]['ema'][0x25][_0x5b4233])<this['IndicatorsData'][this[_0x3abf90(0x237)]][_0x3abf90(0x232)][0xe][_0x5b4233]*0x1,_0x3454d7=this[_0x3abf90(0x1ce)][this['mainTimeframe']][_0x3abf90(0x1e9)][0x25][_0x5b4233]<this[_0x3abf90(0x1ce)][this[_0x3abf90(0x237)]]['ema'][0xc8][_0x5b4233];if(_0x3454d7){var _0x2bd126=_0x2b24de[_0x3abf90(0x201)]<this[_0x3abf90(0x1ce)][this[_0x3abf90(0x237)]]['psar'][_0x5b4233-0x1],_0x155138=(CandlePattern_1['CandlePattern'][_0x3abf90(0x1d5)](_0xfa5801)||CandlePattern_1['CandlePattern'][_0x3abf90(0x242)](_0xfa5801,!![]))&&CandlePattern_1[_0x3abf90(0x1d4)]['isLongTail'](_0x2b24de,!![]);if(_0x105562&&_0x419bdb&&_0x2bd126&&_0x155138)return this[_0x3abf90(0x212)](!![],'sell');}else{var _0x144af6=_0x2b24de[_0x3abf90(0x214)]>this['IndicatorsData'][this[_0x3abf90(0x237)]][_0x3abf90(0x1e2)][_0x5b4233-0x1],_0x2dc596=(CandlePattern_1[_0x3abf90(0x1d4)][_0x3abf90(0x1d5)](_0xfa5801)||CandlePattern_1[_0x3abf90(0x1d4)][_0x3abf90(0x242)](_0xfa5801))&&CandlePattern_1[_0x3abf90(0x1d4)][_0x3abf90(0x20d)](_0x2b24de);if(_0x105562&&_0x419bdb&&_0x144af6&&_0x2dc596)return this[_0x3abf90(0x212)](!![],'buy');}return this[_0x3abf90(0x212)](![],'none');},_0x1a1729[_0x11dc61(0x22b)][_0x11dc61(0x1f2)]=function(_0xcddf2b){var _0x2b0e=_0x11dc61,_0x236019=this[_0x2b0e(0x1d0)][this[_0x2b0e(0x237)]][_0x2b0e(0x20b)]-0x1,_0x5657dd=this[_0x2b0e(0x1ce)][this['mainTimeframe']][_0x2b0e(0x232)][0xe][_0x236019],_0x5c51cd=this[_0x2b0e(0x1fe)][this[_0x2b0e(0x237)]]['close'][_0x236019],_0x4ccd84=Math[_0x2b0e(0x222)](_0x5657dd*this[_0x2b0e(0x21e)]+(_0xcddf2b==_0x2b0e(0x22e)?_0x5c51cd:0x0)-(_0xcddf2b==_0x2b0e(0x205)?_0x5c51cd:0x0)),_0x4c8462=Math['abs'](_0x5657dd*this[_0x2b0e(0x213)]+(_0xcddf2b==_0x2b0e(0x205)?_0x5c51cd:0x0)-(_0xcddf2b==_0x2b0e(0x22e)?_0x5c51cd:0x0));return{'tp':_0x4c8462[_0x2b0e(0x1e4)](0x2),'sl':_0x4ccd84[_0x2b0e(0x1e4)](0x2)};},_0x1a1729[_0x11dc61(0x22b)][_0x11dc61(0x238)]=function(){var _0x5403d3=_0x11dc61,_0x34e5a9=this[_0x5403d3(0x1d0)][this['mainTimeframe']][_0x5403d3(0x20b)]-0x1,_0x5be36e=this[_0x5403d3(0x1fe)][this[_0x5403d3(0x237)]][_0x5403d3(0x1cb)][_0x34e5a9],_0x161b26=this[_0x5403d3(0x231)]/Math[_0x5403d3(0x222)](parseFloat(this[_0x5403d3(0x1f2)]('buy')['sl'])-parseFloat(_0x5be36e))*_0x5be36e/_0x5be36e;return _0x161b26[_0x5403d3(0x1e4)](0x2)[_0x5403d3(0x21f)]();},_0x1a1729[_0x11dc61(0x22b)][_0x11dc61(0x1fc)]=function(_0x58d517,_0x369ea9,_0x4b2aaa){return{'trailed':![],'price':0x0,'removeTP':![]};},_0x1a1729;}(StrategyBase);exports[a0_0x1b5564(0x216)]=Strategy1h;var StrategyEngulfing=function(_0x23ec17){var _0x59828e=a0_0x1b5564;__extends(_0xcda49f,_0x23ec17);function _0xcda49f(){var _0x3dd025=a0_0x1863;return _0x23ec17[_0x3dd025(0x23d)](this,'1h',0x1,1.33)||this;}return _0xcda49f[_0x59828e(0x22b)]['calculateIndicators']=function(){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x85b59f){var _0x25b6a4=a0_0x1863;switch(_0x85b59f[_0x25b6a4(0x1ed)]){case 0x0:return[0x4,_0x23ec17[_0x25b6a4(0x22b)]['addIndicator'][_0x25b6a4(0x23d)](this,'ema',{'length':0x25})];case 0x1:_0x85b59f['sent']();return[0x4,_0x23ec17[_0x25b6a4(0x22b)][_0x25b6a4(0x20a)][_0x25b6a4(0x23d)](this,'ema',{'length':0x5a})];case 0x2:_0x85b59f[_0x25b6a4(0x1f6)]();return[0x4,_0x23ec17['prototype'][_0x25b6a4(0x20a)][_0x25b6a4(0x23d)](this,_0x25b6a4(0x232),{'length':0xe})];case 0x3:_0x85b59f[_0x25b6a4(0x1f6)]();return[0x2];}});});},_0xcda49f['prototype'][_0x59828e(0x204)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){var _0x889573,_0x496cdd,_0x810e5,_0x5c1007,_0x24b801;return __generator(this,function(_0x49f02f){var _0x51ab5b=a0_0x1863;_0x889573=this[_0x51ab5b(0x1c4)](),_0x496cdd=[],_0x810e5=this['getIndicator'](_0x51ab5b(0x1e9),_0x889573,0x25)<this[_0x51ab5b(0x227)]('ema',_0x889573,0x5a);if(_0x810e5){_0x5c1007=[CandlePattern_1[_0x51ab5b(0x1d4)][_0x51ab5b(0x1c7)](this[_0x51ab5b(0x1c2)](_0x889573-0x1),this[_0x51ab5b(0x1c2)](_0x889573),!![])];if(_0x5c1007['every'](Boolean))return[0x2,this[_0x51ab5b(0x212)](!![],_0x51ab5b(0x22e))];}else{_0x24b801=[CandlePattern_1[_0x51ab5b(0x1d4)][_0x51ab5b(0x1c7)](this[_0x51ab5b(0x1c2)](_0x889573-0x1),this[_0x51ab5b(0x1c2)](_0x889573))];if(_0x24b801[_0x51ab5b(0x1d8)](Boolean))return[0x2,this[_0x51ab5b(0x212)](!![],_0x51ab5b(0x205))];}return[0x2,this['generateSignal'](![],_0x51ab5b(0x20e))];});});},_0xcda49f[_0x59828e(0x22b)][_0x59828e(0x1f2)]=function(_0x125d41){var _0x1a3b7d=_0x59828e;return _0x23ec17[_0x1a3b7d(0x22b)][_0x1a3b7d(0x1f2)][_0x1a3b7d(0x23d)](this,_0x125d41,0x3);},_0xcda49f;}(StrategyBaseSimplified);exports[a0_0x1b5564(0x236)]=StrategyEngulfing;var Strategy5m=function(_0x5ef3e7){var _0x2424a0=a0_0x1b5564;__extends(_0x4af2c7,_0x5ef3e7);function _0x4af2c7(){var _0x48535d=a0_0x1863,_0x2189c4=_0x5ef3e7[_0x48535d(0x23d)](this,'5m',[])||this;return _0x2189c4[_0x48535d(0x21e)]=0x3,_0x2189c4[_0x48535d(0x213)]=0x4,_0x2189c4[_0x48535d(0x231)]=0x1,_0x2189c4;}return _0x4af2c7['prototype'][_0x2424a0(0x224)]=function(_0x589fb2){return __awaiter(this,void 0x0,void 0x0,function(){return __generator(this,function(_0x47f159){var _0xbcaaaf=a0_0x1863;switch(_0x47f159['label']){case 0x0:_0x5ef3e7['prototype']['updateData'][_0xbcaaaf(0x23d)](this,_0x589fb2);return[0x4,this[_0xbcaaaf(0x209)]()];case 0x1:_0x47f159[_0xbcaaaf(0x1f6)]();return[0x2,this['checkEntry']()];}});});},_0x4af2c7[_0x2424a0(0x22b)][_0x2424a0(0x209)]=function(){return __awaiter(this,void 0x0,void 0x0,function(){var _0x560b39,_0xe25c24,_0x547bec,_0x389902,_0xe3b231,_0x4b192c,_0x4d9a44,_0x3f0672,_0x250bad,_0x4b06ee,_0x4f2dd2,_0x3cd961,_0x23ec64;return __generator(this,function(_0x2d4ea8){var _0x34b054=a0_0x1863;switch(_0x2d4ea8['label']){case 0x0:this['initiateIndicatorsObject'](this['mainTimeframe'],'ema'),this['initiateIndicatorsObject'](this[_0x34b054(0x237)],_0x34b054(0x232)),this[_0x34b054(0x23a)](this[_0x34b054(0x237)],_0x34b054(0x1e2)),this['initiateIndicatorsObject'](this[_0x34b054(0x237)],'bbands'),_0x560b39=this[_0x34b054(0x1ce)][this[_0x34b054(0x237)]][_0x34b054(0x1e9)],_0xe25c24=0x25;return[0x4,Tulind_1['Tulind'][_0x34b054(0x21a)](0x25,this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]][_0x34b054(0x1cb)])];case 0x1:_0x560b39[_0xe25c24]=_0x2d4ea8['sent'](),_0x547bec=this['IndicatorsData'][this['mainTimeframe']]['ema'],_0x389902=0x5a;return[0x4,Tulind_1[_0x34b054(0x1fb)][_0x34b054(0x21a)](0x5a,this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]][_0x34b054(0x1cb)])];case 0x2:_0x547bec[_0x389902]=_0x2d4ea8[_0x34b054(0x1f6)](),_0xe3b231=this[_0x34b054(0x1ce)][this[_0x34b054(0x237)]][_0x34b054(0x1e9)],_0x4b192c=0xc8;return[0x4,Tulind_1['Tulind']['getEMA'](0xc8,this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]][_0x34b054(0x1cb)])];case 0x3:_0xe3b231[_0x4b192c]=_0x2d4ea8['sent'](),_0x4d9a44=this[_0x34b054(0x1ce)][this[_0x34b054(0x237)]]['atr'],_0x3f0672=0xe;return[0x4,Tulind_1['Tulind'][_0x34b054(0x1fa)](0xe,this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]][_0x34b054(0x201)],this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]][_0x34b054(0x214)],this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]][_0x34b054(0x1cb)])];case 0x4:_0x4d9a44[_0x3f0672]=_0x2d4ea8[_0x34b054(0x1f6)](),_0x250bad=this['IndicatorsData'][this[_0x34b054(0x237)]],_0x4b06ee=_0x34b054(0x1e2);return[0x4,Tulind_1[_0x34b054(0x1fb)]['getPSAR'](this['OHLCsData'][this['mainTimeframe']]['high'],this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]][_0x34b054(0x214)],0.02,0.03)];case 0x5:_0x250bad[_0x4b06ee]=_0x2d4ea8['sent'](),_0x4f2dd2=this[_0x34b054(0x1ce)][this[_0x34b054(0x237)]],_0x3cd961=_0x34b054(0x235);return[0x4,Tulind_1[_0x34b054(0x1fb)][_0x34b054(0x1dd)](0xa,0x2,this[_0x34b054(0x1fe)][this[_0x34b054(0x237)]]['close'])];case 0x6:_0x4f2dd2[_0x3cd961]=_0x2d4ea8['sent']();for(_0x23ec64 in this[_0x34b054(0x223)]){};return[0x2];}});});},_0x4af2c7[_0x2424a0(0x22b)][_0x2424a0(0x1d7)]=function(){var _0x58543e=_0x2424a0;_0x5ef3e7[_0x58543e(0x22b)][_0x58543e(0x1d7)][_0x58543e(0x23d)](this);var _0x49c798=this[_0x58543e(0x1d0)][this[_0x58543e(0x237)]][_0x58543e(0x20b)]-0x1,_0xa739d2=_0x58543e(0x200)+this[_0x58543e(0x1fe)][this['mainTimeframe']][_0x58543e(0x1cb)][_0x49c798]+'\x0a'+_0x58543e(0x22d)+this[_0x58543e(0x1ce)][this['mainTimeframe']]['ema'][0x5a][_0x49c798][_0x58543e(0x1e4)](0x2)+'\x0a'+'EMA\x2037:\x20'+this['IndicatorsData'][this[_0x58543e(0x237)]][_0x58543e(0x1e9)][0x25][_0x49c798][_0x58543e(0x1e4)](0x2)+'\x0a'+_0x58543e(0x21c)+this[_0x58543e(0x1ce)][this[_0x58543e(0x237)]][_0x58543e(0x1e2)][_0x49c798-0x1][_0x58543e(0x1e4)](0x2)+'\x0a'+'BB\x20Upper:\x20'+this[_0x58543e(0x1ce)][this[_0x58543e(0x237)]][_0x58543e(0x235)][_0x49c798][0x0][_0x58543e(0x1e4)](0x2)+'\x0a'+_0x58543e(0x1e6)+this[_0x58543e(0x1ce)][this[_0x58543e(0x237)]][_0x58543e(0x235)][_0x49c798][0x2]['toFixed'](0x2)+'\x0a'+_0x58543e(0x219)+this[_0x58543e(0x1ce)][this[_0x58543e(0x237)]]['atr'][0xe][_0x49c798];return _0xa739d2;},_0x4af2c7[_0x2424a0(0x22b)][_0x2424a0(0x204)]=function(){var _0x23e7ca=_0x2424a0,_0x41e190=this[_0x23e7ca(0x1d0)][this[_0x23e7ca(0x237)]]['length']-0x1,_0x4ae063=this[_0x23e7ca(0x1c2)](_0x41e190-0x1),_0x5d2ff0=this[_0x23e7ca(0x1c2)](_0x41e190),_0x308a9f=Math['abs'](this[_0x23e7ca(0x1ce)][this['mainTimeframe']][_0x23e7ca(0x1e9)][0x25][_0x41e190]-this['IndicatorsData'][this[_0x23e7ca(0x237)]][_0x23e7ca(0x1e9)][0x5a][_0x41e190])<this['IndicatorsData'][this['mainTimeframe']][_0x23e7ca(0x232)][0xe][_0x41e190],_0xb8a74=Math['abs'](this[_0x23e7ca(0x1ce)][this[_0x23e7ca(0x237)]][_0x23e7ca(0x235)][_0x41e190][0x0]-this[_0x23e7ca(0x1ce)][this[_0x23e7ca(0x237)]][_0x23e7ca(0x235)][_0x41e190][0x2])<this[_0x23e7ca(0x1ce)][this[_0x23e7ca(0x237)]][_0x23e7ca(0x232)][0xe][_0x41e190]*2.5,_0x749dda=this['IndicatorsData'][this[_0x23e7ca(0x237)]]['ema'][0x25][_0x41e190]<this[_0x23e7ca(0x1ce)][this['mainTimeframe']][_0x23e7ca(0x1e9)][0x5a][_0x41e190];if(_0x749dda){var _0xd0956a=CandlePattern_1[_0x23e7ca(0x1d4)][_0x23e7ca(0x203)](_0x5d2ff0)&&CandlePattern_1[_0x23e7ca(0x1d4)][_0x23e7ca(0x1d5)](_0x4ae063),_0x2d5002=_0x5d2ff0[_0x23e7ca(0x1cb)]<this[_0x23e7ca(0x1ce)][this['mainTimeframe']][_0x23e7ca(0x235)][_0x41e190][0x2]&&_0x5d2ff0[_0x23e7ca(0x201)],_0x275458=this['IndicatorsData'][this['mainTimeframe']][_0x23e7ca(0x1e2)][_0x41e190]>_0x5d2ff0[_0x23e7ca(0x201)],_0x450c1c=this[_0x23e7ca(0x1ce)][this['mainTimeframe']][_0x23e7ca(0x1e2)][_0x41e190]<_0x4ae063['low'];if(_0x308a9f&&_0xd0956a&&_0x2d5002&&_0x275458)return this['generateSignal'](!![],_0x23e7ca(0x22e));}else{var _0x2d1745=CandlePattern_1[_0x23e7ca(0x1d4)][_0x23e7ca(0x1e1)](_0x5d2ff0)&&CandlePattern_1['CandlePattern']['isDoji'](_0x4ae063),_0x448035=_0x5d2ff0[_0x23e7ca(0x1cb)]>this['IndicatorsData'][this[_0x23e7ca(0x237)]][_0x23e7ca(0x235)][_0x41e190][0x0],_0x501426=this[_0x23e7ca(0x1ce)][this[_0x23e7ca(0x237)]][_0x23e7ca(0x1e2)][_0x41e190]<_0x5d2ff0['low'],_0x4d5251=this[_0x23e7ca(0x1ce)][this[_0x23e7ca(0x237)]]['psar'][_0x41e190]>_0x4ae063['high'];if(_0x308a9f&&_0x2d1745&&_0x448035&&_0x501426&&_0x4d5251)return this[_0x23e7ca(0x212)](!![],_0x23e7ca(0x205));}return this['generateSignal'](![],_0x23e7ca(0x20e));},_0x4af2c7[_0x2424a0(0x22b)][_0x2424a0(0x1f2)]=function(_0x25fa0a){var _0x4f012c=_0x2424a0;_0x25fa0a===void 0x0&&(_0x25fa0a=_0x4f012c(0x205));var _0x1a3ae6=this[_0x4f012c(0x1d0)][this[_0x4f012c(0x237)]]['length']-0x1,_0x9d115f=this['IndicatorsData'][this[_0x4f012c(0x237)]]['atr'][0xe][_0x1a3ae6],_0x3cbf2b=this['OHLCsData'][this[_0x4f012c(0x237)]]['close'][_0x1a3ae6],_0x4c70f5=Math[_0x4f012c(0x222)](_0x9d115f*this[_0x4f012c(0x21e)]+(_0x25fa0a==_0x4f012c(0x22e)?_0x3cbf2b:0x0)-(_0x25fa0a==_0x4f012c(0x205)?_0x3cbf2b:0x0)),_0x987914=Math[_0x4f012c(0x222)](_0x9d115f*this[_0x4f012c(0x213)]+(_0x25fa0a==_0x4f012c(0x205)?_0x3cbf2b:0x0)-(_0x25fa0a==_0x4f012c(0x22e)?_0x3cbf2b:0x0));return{'tp':_0x987914[_0x4f012c(0x1e4)](0x2),'sl':_0x4c70f5['toFixed'](0x2)};},_0x4af2c7['prototype'][_0x2424a0(0x238)]=function(){var _0x8f9dbf=_0x2424a0,_0x569123=this[_0x8f9dbf(0x1d0)][this['mainTimeframe']]['length']-0x1,_0x4e0e73=this['OHLCsData'][this['mainTimeframe']]['close'][_0x569123],_0x4866ee=this[_0x8f9dbf(0x1f2)](),_0x48b40d=this[_0x8f9dbf(0x231)]/Math[_0x8f9dbf(0x222)](parseFloat(_0x4866ee['sl'])-parseFloat(_0x4e0e73))*_0x4e0e73/_0x4e0e73;return _0x48b40d[_0x8f9dbf(0x1e4)](0x2)[_0x8f9dbf(0x21f)]();},_0x4af2c7['prototype'][_0x2424a0(0x1fc)]=function(){},_0x4af2c7;}(StrategyBase);exports[a0_0x1b5564(0x22a)]=Strategy5m;
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+exports.__esModule = true;
+exports.StrategyTestIndicator = exports.StrategySimplifiedTemplate = exports.StrategyTemplate = exports.StrategyBaseSimplified = void 0;
+var Tulind_1 = require("../support/Tulind");
+var Binance_1 = require("../support/Binance");
+var CandlePattern_1 = require("../detector/CandlePattern");
+var StrategyBase = /** @class */ (function () {
+    function StrategyBase(mainTimeframe, otherTimeframe) {
+        this.CandlesData = {};
+        this.OHLCsData = {};
+        this.IndicatorsData = {};
+        this.riskFiat = NaN;
+        this.rewardRatio = NaN;
+        this.mainTimeframe = mainTimeframe;
+        this.otherTimeframe = otherTimeframe;
+    }
+    StrategyBase.prototype.getOHLCbyIndex = function (index) {
+        var currentCandle = {
+            "open": this.OHLCsData[this.mainTimeframe].open[index],
+            "high": this.OHLCsData[this.mainTimeframe].high[index],
+            "low": this.OHLCsData[this.mainTimeframe].low[index],
+            "close": this.OHLCsData[this.mainTimeframe].close[index]
+        };
+        return currentCandle;
+    };
+    StrategyBase.prototype.storeOHLC = function () {
+        var _this = this;
+        this.OHLCsData[this.mainTimeframe] = (0, Binance_1.separateOHLCtoIndividualArray)(this.CandlesData[this.mainTimeframe]);
+        this.otherTimeframe.forEach(function (e) {
+            _this.OHLCsData[e] = (0, Binance_1.separateOHLCtoIndividualArray)(_this.CandlesData[e]);
+        });
+    };
+    StrategyBase.prototype.initiateIndicatorsObject = function (timeframe, indicator) {
+        if (this.IndicatorsData[timeframe] == undefined)
+            this.IndicatorsData[timeframe] = {};
+        if (this.IndicatorsData[timeframe][indicator] == undefined)
+            this.IndicatorsData[timeframe][indicator] = {};
+    };
+    StrategyBase.prototype.updateData = function (CandlesData) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.CandlesData = CandlesData;
+                this.storeOHLC();
+                return [2 /*return*/];
+            });
+        });
+    };
+    StrategyBase.prototype.checkTrailing = function (entryPrice, losePrice, type) {
+        return {
+            "trailed": false,
+            "price": 0,
+            "removeTP": false
+        };
+    };
+    StrategyBase.prototype.getIndicatorInfo = function () { };
+    StrategyBase.prototype.getCurrentIndex = function () {
+        return this.CandlesData[this.mainTimeframe].length - 1;
+    };
+    StrategyBase.prototype.getTakeProfitAndStopLoss = function (type, atrMultiplier) {
+        if (atrMultiplier === void 0) { atrMultiplier = 3; }
+        var index = this.CandlesData[this.mainTimeframe].length - 1;
+        var atr = this.IndicatorsData[this.mainTimeframe]["atr"][index];
+        var currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
+        var slPrice = Math.abs((atr * atrMultiplier) + (type == "sell" ? currentPrice : 0) - ((type == "buy" ? currentPrice : 0)));
+        var tpPrice = Math.abs((atr * atrMultiplier * this.rewardRatio) + (type == "buy" ? currentPrice : 0) - ((type == "sell" ? currentPrice : 0)));
+        return {
+            "tp": tpPrice.toFixed(2),
+            "sl": slPrice.toFixed(2)
+        };
+    };
+    StrategyBase.prototype.getPositionSize = function () {
+        var index = this.CandlesData[this.mainTimeframe].length - 1;
+        var currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
+        var positionSize = (this.riskFiat / Math.abs(parseFloat(this.getTakeProfitAndStopLoss("buy").sl) - parseFloat(currentPrice)) * currentPrice) / currentPrice;
+        return positionSize.toFixed(2);
+    };
+    StrategyBase.prototype.generateSignal = function (entry, type) {
+        var entryPrice = this.getOHLCbyIndex(this.getCurrentIndex()).close;
+        var positionSize = this.getPositionSize();
+        var TPSL = this.getTakeProfitAndStopLoss(type);
+        if (entry)
+            return {
+                "entry": entry,
+                "entryPrice": entryPrice,
+                "type": type,
+                "size": positionSize,
+                "tp": TPSL.tp,
+                "sl": TPSL.sl,
+                "message": "======= " + (type == "sell" ? "SELL" : "BUY") + " =======\n"
+                    + this.getIndicatorInfo() + "\n" +
+                    "size:" + positionSize + "\n" +
+                    "tp:" + TPSL.tp + "\n" +
+                    "sl:" + TPSL.sl + "\n" +
+                    "Entry " + type + " potential, pattern detected"
+            };
+        else
+            return {
+                "entry": entry,
+                "entryPrice": this.getOHLCbyIndex(this.getCurrentIndex()).close,
+                "type": type,
+                "size": positionSize,
+                "tp": TPSL.tp,
+                "sl": TPSL.sl,
+                "message": this.getIndicatorInfo() +
+                    "No entry potential"
+            };
+    };
+    StrategyBase.prototype.exitAfterCandles = function () {
+        return -1;
+    };
+    return StrategyBase;
+}());
+var StrategyBaseSimplified = /** @class */ (function (_super) {
+    __extends(StrategyBaseSimplified, _super);
+    function StrategyBaseSimplified(timeframe, riskFiat, rewardRatio) {
+        if (timeframe === void 0) { timeframe = "1h"; }
+        var _this = _super.call(this, timeframe, []) || this;
+        _this.riskFiat = riskFiat;
+        _this.rewardRatio = rewardRatio;
+        return _this;
+    }
+    StrategyBaseSimplified.prototype.updateData = function (CandlesData) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _super.prototype.updateData.call(this, CandlesData);
+                        return [4 /*yield*/, this.calculateIndicators()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, this.checkEntry()];
+                }
+            });
+        });
+    };
+    StrategyBaseSimplified.prototype.calculateIndicators = function () {
+        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+            return [2 /*return*/];
+        }); });
+    };
+    StrategyBaseSimplified.prototype.getIndicatorInfo = function () {
+        var index = this.getCurrentIndex();
+        var indicatorInfo = "CLOSE : " + this.OHLCsData[this.mainTimeframe].close[index] + "\n";
+        return indicatorInfo;
+    };
+    StrategyBaseSimplified.prototype.checkEntry = function () { };
+    StrategyBaseSimplified.prototype.addIndicator = function (name, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0;
+            return __generator(this, function (_1) {
+                switch (_1.label) {
+                    case 0:
+                        _a = name;
+                        switch (_a) {
+                            case "ema": return [3 /*break*/, 1];
+                            case "emaold": return [3 /*break*/, 3];
+                            case "atr": return [3 /*break*/, 5];
+                            case "atrnew": return [3 /*break*/, 7];
+                            case "psar": return [3 /*break*/, 9];
+                            case "psarnew": return [3 /*break*/, 11];
+                            case "rsi": return [3 /*break*/, 13];
+                            case "macd": return [3 /*break*/, 15];
+                            case "kc": return [3 /*break*/, 17];
+                            case "dc": return [3 /*break*/, 19];
+                            case "chandelierexit": return [3 /*break*/, 21];
+                            case "adx": return [3 /*break*/, 23];
+                        }
+                        return [3 /*break*/, 25];
+                    case 1:
+                        //options: length
+                        this.initiateIndicatorsObject(this.mainTimeframe, "ema");
+                        _b = this.IndicatorsData[this.mainTimeframe]["ema"];
+                        _c = options.length;
+                        return [4 /*yield*/, Tulind_1.Tulind.getEMA(options.length, this.OHLCsData[this.mainTimeframe].close)];
+                    case 2:
+                        _b[_c] = _1.sent();
+                        return [3 /*break*/, 26];
+                    case 3:
+                        //options: length
+                        this.initiateIndicatorsObject(this.mainTimeframe, "ema");
+                        _d = this.IndicatorsData[this.mainTimeframe]["ema"];
+                        _e = options.length;
+                        return [4 /*yield*/, Tulind_1.Tulind.getEMAOld(options.length, this.OHLCsData[this.mainTimeframe].close)];
+                    case 4:
+                        _d[_e] = _1.sent();
+                        return [3 /*break*/, 26];
+                    case 5:
+                        //options: length
+                        this.initiateIndicatorsObject(this.mainTimeframe, "atr");
+                        _f = this.IndicatorsData[this.mainTimeframe];
+                        _g = "atr";
+                        return [4 /*yield*/, Tulind_1.Tulind.getATROld(options.length, this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].low, this.OHLCsData[this.mainTimeframe].close)];
+                    case 6:
+                        _f[_g] = _1.sent();
+                        return [3 /*break*/, 26];
+                    case 7:
+                        //options: length
+                        this.initiateIndicatorsObject(this.mainTimeframe, "atr");
+                        _h = this.IndicatorsData[this.mainTimeframe];
+                        _j = "atr";
+                        return [4 /*yield*/, Tulind_1.Tulind.getATR(options.length, this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].low, this.OHLCsData[this.mainTimeframe].close)];
+                    case 8:
+                        _h[_j] = _1.sent();
+                        _1.label = 9;
+                    case 9:
+                        //options: step,max 
+                        this.initiateIndicatorsObject(this.mainTimeframe, "psar");
+                        _k = this.IndicatorsData[this.mainTimeframe];
+                        _l = "psar";
+                        return [4 /*yield*/, Tulind_1.Tulind.getPSAROld(this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].low, options.step, options.max)];
+                    case 10:
+                        _k[_l] = _1.sent(); //max 0.03 default 0.2
+                        return [3 /*break*/, 26];
+                    case 11:
+                        this.initiateIndicatorsObject(this.mainTimeframe, "psar");
+                        _m = this.IndicatorsData[this.mainTimeframe];
+                        _o = "psar";
+                        return [4 /*yield*/, Tulind_1.Tulind.getPSAR(this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].low, options.step, options.max)];
+                    case 12:
+                        _m[_o] = _1.sent(); //max 0.03 default 0.2
+                        return [3 /*break*/, 26];
+                    case 13:
+                        //options: length
+                        this.initiateIndicatorsObject(this.mainTimeframe, "rsi");
+                        _p = this.IndicatorsData[this.mainTimeframe];
+                        _q = "rsi";
+                        return [4 /*yield*/, Tulind_1.Tulind.getRSI(options.length, this.OHLCsData[this.mainTimeframe].close)];
+                    case 14:
+                        _p[_q] = _1.sent(); //max 0.03 default 0.2
+                        return [3 /*break*/, 26];
+                    case 15:
+                        //options: short, long, signal
+                        this.initiateIndicatorsObject(this.mainTimeframe, "macd");
+                        _r = this.IndicatorsData[this.mainTimeframe];
+                        _s = "macd";
+                        return [4 /*yield*/, Tulind_1.Tulind.getMACD(options.short, options.long, options.signal, this.OHLCsData[this.mainTimeframe].close)];
+                    case 16:
+                        _r[_s] = _1.sent();
+                        _1.label = 17;
+                    case 17:
+                        //options: length, multiplier
+                        this.initiateIndicatorsObject(this.mainTimeframe, "kc");
+                        _t = this.IndicatorsData[this.mainTimeframe];
+                        _u = "kc";
+                        return [4 /*yield*/, Tulind_1.Tulind.getKC(options.length, options.multiplier, this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].close, this.OHLCsData[this.mainTimeframe].low)];
+                    case 18:
+                        _t[_u] = _1.sent();
+                        _1.label = 19;
+                    case 19:
+                        //options: length, percentage
+                        this.initiateIndicatorsObject(this.mainTimeframe, "dc");
+                        _v = this.IndicatorsData[this.mainTimeframe];
+                        _w = "dc";
+                        return [4 /*yield*/, Tulind_1.Tulind.getDC(options.length, options.percentage, this.OHLCsData[this.mainTimeframe].close)];
+                    case 20:
+                        _v[_w] = _1.sent();
+                        _1.label = 21;
+                    case 21:
+                        //options: length, multiplier
+                        this.initiateIndicatorsObject(this.mainTimeframe, "chandelierexit");
+                        _x = this.IndicatorsData[this.mainTimeframe];
+                        _y = "chandelierexit";
+                        return [4 /*yield*/, Tulind_1.Tulind.getChandelierExit(options.length, options.multiplier, this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].close, this.OHLCsData[this.mainTimeframe].low)];
+                    case 22:
+                        _x[_y] = _1.sent();
+                        _1.label = 23;
+                    case 23:
+                        //options: length
+                        this.initiateIndicatorsObject(this.mainTimeframe, "adx");
+                        _z = this.IndicatorsData[this.mainTimeframe];
+                        _0 = "adx";
+                        return [4 /*yield*/, Tulind_1.Tulind.getADX(options.length, this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].low, this.OHLCsData[this.mainTimeframe].close)];
+                    case 24:
+                        _z[_0] = _1.sent();
+                        _1.label = 25;
+                    case 25: return [3 /*break*/, 26];
+                    case 26: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    StrategyBaseSimplified.prototype.getIndicator = function (name, index, length) {
+        if (length === void 0) { length = NaN; }
+        if (!isNaN(length))
+            return this.IndicatorsData[this.mainTimeframe][name][length][index];
+        else
+            return this.IndicatorsData[this.mainTimeframe][name][index];
+    };
+    return StrategyBaseSimplified;
+}(StrategyBase));
+exports.StrategyBaseSimplified = StrategyBaseSimplified;
+//==== TEMPLATE ====//
+var StrategyTemplate = /** @class */ (function (_super) {
+    __extends(StrategyTemplate, _super);
+    function StrategyTemplate() {
+        var _this = _super.call(this, "5m", []) || this;
+        // ================================= TRADE FUNCTION =============================== //
+        //to get stoploss and take profit
+        _this.slATRMultiplier = 1;
+        _this.tpATRMultiplier = 2;
+        //to get position size
+        _this.riskUSDT = 1;
+        return _this;
+    }
+    //called each time candles update
+    StrategyTemplate.prototype.updateData = function (CandlesData) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _super.prototype.updateData.call(this, CandlesData);
+                        return [4 /*yield*/, this.calculateIndicators()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, this.checkEntry()];
+                }
+            });
+        });
+    };
+    //define the indicators
+    StrategyTemplate.prototype.calculateIndicators = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b, e;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        //KC 37 3, EMA 50 & 200, ATR: break KC, KC mid < 2*ATR, trend direction EMA, sl KC mid/ATR*3, 1:2 RR
+                        this.initiateIndicatorsObject(this.mainTimeframe, "atr");
+                        _a = this.IndicatorsData[this.mainTimeframe]["atr"];
+                        _b = 14;
+                        return [4 /*yield*/, Tulind_1.Tulind.getATR(14, this.OHLCsData[this.mainTimeframe].high, this.OHLCsData[this.mainTimeframe].low, this.OHLCsData[this.mainTimeframe].close)];
+                    case 1:
+                        _a[_b] = _c.sent();
+                        for (e in this.otherTimeframe) {
+                            //additional timeframe
+                        }
+                        ;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //indicator info to be printed  
+    StrategyTemplate.prototype.getIndicatorInfo = function () {
+        _super.prototype.getIndicatorInfo.call(this);
+        var index = this.CandlesData[this.mainTimeframe].length - 1;
+        var indicatorInfo = "CLOSE : " + this.OHLCsData[this.mainTimeframe].close[index] + "\n" +
+            "ATR: " + this.IndicatorsData[this.mainTimeframe]["atr"][14][index];
+        return indicatorInfo;
+    };
+    StrategyTemplate.prototype.checkEntry = function () {
+        var index = this.CandlesData[this.mainTimeframe].length - 1;
+        var bbandsIndex = this.IndicatorsData[this.mainTimeframe]["bbands"][1].length - 1;
+        var prevCandle = this.getOHLCbyIndex(index - 1);
+        var currentCandle = this.getOHLCbyIndex(index);
+        //=== general entry prequirements
+        var entryRequirement = true;
+        //Decide Short or Long
+        var shortRequirement = this.IndicatorsData[this.mainTimeframe]["ema"][37][index] < this.IndicatorsData[this.mainTimeframe]['ema'][90][index];
+        if (shortRequirement) {
+            //check for short signal
+            var sellRequirement = CandlePattern_1.CandlePattern.isBearish(currentCandle) && (CandlePattern_1.CandlePattern.isDoji(prevCandle));
+            if (entryRequirement && sellRequirement)
+                return this.generateSignal(true, "sell");
+        }
+        else {
+            //check for long signal
+            var buyRequirement = CandlePattern_1.CandlePattern.isBullish(currentCandle) && (CandlePattern_1.CandlePattern.isDoji(prevCandle));
+            if (entryRequirement && buyRequirement)
+                return this.generateSignal(true, "buy");
+        }
+        return this.generateSignal(false, "none");
+    };
+    StrategyTemplate.prototype.getTakeProfitAndStopLoss = function (type) {
+        if (type === void 0) { type = "buy"; }
+        var index = this.CandlesData[this.mainTimeframe].length - 1;
+        var atr = this.IndicatorsData[this.mainTimeframe]["atr"][14][index];
+        var currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
+        var slPrice = Math.abs((atr * this.slATRMultiplier) + (type == "sell" ? currentPrice : 0) - ((type == "buy" ? currentPrice : 0)));
+        var tpPrice = Math.abs((atr * this.tpATRMultiplier) + (type == "buy" ? currentPrice : 0) - ((type == "sell" ? currentPrice : 0)));
+        return {
+            "tp": tpPrice.toFixed(2),
+            "sl": slPrice.toFixed(2)
+        };
+    };
+    StrategyTemplate.prototype.getPositionSize = function () {
+        var index = this.CandlesData[this.mainTimeframe].length - 1;
+        var currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
+        var TPSL = this.getTakeProfitAndStopLoss();
+        var positionSize = (this.riskUSDT / Math.abs(parseFloat(TPSL.sl) - parseFloat(currentPrice)) * currentPrice) / currentPrice;
+        return positionSize.toFixed(2).toString();
+    };
+    //#OPTIONAL trend follower only
+    StrategyTemplate.prototype.updateTrailingStop = function () {
+        //TODO: generate trailing stop
+    };
+    return StrategyTemplate;
+}(StrategyBase));
+exports.StrategyTemplate = StrategyTemplate;
+var StrategySimplifiedTemplate = /** @class */ (function (_super) {
+    __extends(StrategySimplifiedTemplate, _super);
+    function StrategySimplifiedTemplate() {
+        //set timeframe, risk in fiat, reward ratio (1:3)= 3 reward ratio 
+        return _super.call(this, "1h", 1, 1.33) || this;
+    }
+    StrategySimplifiedTemplate.prototype.getIndicatorInfo = function () {
+        var index = this.getCurrentIndex();
+        var indicatorInfo = _super.prototype.getIndicatorInfo.call(this);
+        //TODO: add other indicator info
+        return indicatorInfo;
+    };
+    StrategySimplifiedTemplate.prototype.calculateIndicators = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: 
+                    //required by getTakeProfitAndStopLoss, override if use different method
+                    return [4 /*yield*/, _super.prototype.addIndicator.call(this, "atr", { "length": 14 })];
+                    case 1:
+                        //required by getTakeProfitAndStopLoss, override if use different method
+                        _a.sent();
+                        //register the indicators
+                        return [4 /*yield*/, _super.prototype.addIndicator.call(this, "ema", { "length": 37 })];
+                    case 2:
+                        //register the indicators
+                        _a.sent();
+                        return [4 /*yield*/, _super.prototype.addIndicator.call(this, "ema", { "length": 90 })];
+                    case 3:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    StrategySimplifiedTemplate.prototype.checkEntry = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var current, entryRequirements, shortRequirements, sellRequirements, buyRequirements;
+            return __generator(this, function (_a) {
+                current = this.getCurrentIndex();
+                entryRequirements = [];
+                shortRequirements = [this.getIndicator("ema", current, 37) < this.getIndicator("ema", current, 90)];
+                if (shortRequirements.every(Boolean)) {
+                    sellRequirements = [
+                        CandlePattern_1.CandlePattern.isEngulfing(this.getOHLCbyIndex(current - 1), this.getOHLCbyIndex(current), true),
+                    ];
+                    if (sellRequirements.every(Boolean))
+                        return [2 /*return*/, this.generateSignal(true, "sell")]; // make a sell signal
+                }
+                else {
+                    buyRequirements = [
+                        CandlePattern_1.CandlePattern.isEngulfing(this.getOHLCbyIndex(current - 1), this.getOHLCbyIndex(current)),
+                    ];
+                    if (buyRequirements.every(Boolean))
+                        return [2 /*return*/, this.generateSignal(true, "buy")]; // make a buy signal
+                }
+                return [2 /*return*/, this.generateSignal(false, "none")]; //if no signal
+            });
+        });
+    };
+    //get take profit and stoploss
+    StrategySimplifiedTemplate.prototype.getTakeProfitAndStopLoss = function (type) {
+        return _super.prototype.getTakeProfitAndStopLoss.call(this, type, 3); // default method ex: {tp:20.11,sl:30.11}
+    };
+    StrategySimplifiedTemplate.prototype.getPositionSize = function () {
+        return _super.prototype.getPositionSize.call(this); // default method ex: 12.30
+    };
+    return StrategySimplifiedTemplate;
+}(StrategyBaseSimplified));
+exports.StrategySimplifiedTemplate = StrategySimplifiedTemplate;
+//==== TEST INDICATOR ====//
+var StrategyTestIndicator = /** @class */ (function (_super) {
+    __extends(StrategyTestIndicator, _super);
+    function StrategyTestIndicator() {
+        //set timeframe, risk in fiat, reward ratio (1:3)= 3 reward ratio 
+        return _super.call(this, "5m", 0.02, 1.33) || this;
+    }
+    StrategyTestIndicator.prototype.getIndicatorInfo = function () {
+        var index = this.getCurrentIndex();
+        var indicatorInfo = _super.prototype.getIndicatorInfo.call(this);
+        indicatorInfo += "CExit : " + this.getIndicator("chandelierexit", 0)[index] + ", " + this.getIndicator("chandelierexit", 1)[index] + ", " + this.getIndicator("chandelierexit", 2)[index] + "\n";
+        indicatorInfo += "ATR : " + this.getIndicator("atr", index) + "\n";
+        return indicatorInfo;
+    };
+    StrategyTestIndicator.prototype.calculateIndicators = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: 
+                    //required by getTakeProfitAndStopLoss, override if use different method
+                    return [4 /*yield*/, _super.prototype.addIndicator.call(this, "atr", { "length": 14 })];
+                    case 1:
+                        //required by getTakeProfitAndStopLoss, override if use different method
+                        _a.sent();
+                        //register the indicators
+                        return [4 /*yield*/, _super.prototype.addIndicator.call(this, "ema", { "length": 37 })];
+                    case 2:
+                        //register the indicators
+                        _a.sent();
+                        return [4 /*yield*/, _super.prototype.addIndicator.call(this, "ema", { "length": 90 })];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, _super.prototype.addIndicator.call(this, "chandelierexit", { "length": 1, "multiplier": 2 })];
+                    case 4:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    StrategyTestIndicator.prototype.checkEntry = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var index, entryRequirements, buyRequirements, sellRequirements;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, this.generateSignal(true, "sell")];
+            });
+        });
+    };
+    //get take profit and stoploss
+    StrategyTestIndicator.prototype.getTakeProfitAndStopLoss = function (type) {
+        return _super.prototype.getTakeProfitAndStopLoss.call(this, type, 1); //3 is the multiplier, default method atr based, return ex: {tp:20.11,sl:30.11}
+    };
+    StrategyTestIndicator.prototype.getPositionSize = function () {
+        return _super.prototype.getPositionSize.call(this); // default method return ex: 12.30
+    };
+    StrategyTestIndicator.prototype.exitAfterCandles = function () {
+        return 20;
+    };
+    return StrategyTestIndicator;
+}(StrategyBaseSimplified));
+exports.StrategyTestIndicator = StrategyTestIndicator;

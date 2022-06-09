@@ -1,5 +1,5 @@
 node_modules
 .env
-strategy/Strategy1h.ts
-strategy/Strategy5m.ts
-strategy/oldfiles
+# strategy/Strategy1h.ts
+# strategy/Strategy5m.ts
+# strategy/oldfiles

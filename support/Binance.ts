@@ -2,8 +2,8 @@ import 'dotenv/config'
 const BinanceAPI = require('node-binance-api');
 export class Binance{
     static binance = new BinanceAPI().options({
-        'APIKEY': process.env.API_KEY,
-        'APISECRET': process.env.API_SECRET,
+        'APIKEY': process.env.BINANCE_API_KEY,
+        'APISECRET': process.env.BINANCE_API_SECRET,
         'test': false
     });
     // Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
@@ -25,7 +25,6 @@ export class Binance{
     }
     static async getPosition(symbol:string="LTCUSDT"){
         let response:any = await this.binance.futuresPositionRisk({symbol:symbol,recvWindow:100000000});
-        console.log(response);
         return {
             "trade":Math.abs(response[0].positionAmt)>0,
             "ammount":response[0].positionAmt,
@@ -70,6 +69,88 @@ export class Binance{
                 'quantity': params.quantity,
                 'side': (params.type=="sell"?"BUY":"SELL"),
                 'stopPrice': params.tpPrice.toString(),
+                'timeInForce': 'GTE_GTC',
+                'reduceOnly': 'True'
+            }
+        ]);
+        console.log(response);
+        return response;
+    }
+    static async setLimitPositionWithTPSL(params:{price:number,quantity:number;slPrice:number;tpPrice:number;type:string;symbol?:any}){
+        let response:any = await this.binance.futuresMultipleOrders([
+            {
+                'newClientOrderId': '467fba09-a286-43c3-a79a-'+(Math.random() + 1).toString(36).substring(7),
+                'symbol': params.symbol??"LTCUSDT",
+                'type': 'LIMIT',
+                'quantity': params.quantity.toString(),
+                'price':params.price.toString(),
+                'side': (params.type=="sell"?"SELL":"BUY"),
+                'timeInForce': 'GTC',
+            },
+            {
+                'newClientOrderId': '6925e0cb-2d86-42af-875c-'+(Math.random() + 1).toString(36).substring(7),
+                'symbol':params.symbol??"LTCUSDT",
+                'type': 'STOP',
+                'quantity': params.quantity.toString(),
+                'price':params.slPrice.toString(),
+                'side': (params.type=="sell"?"BUY":"SELL"),
+                'stopPrice': (params.slPrice-0.10).toString(),
+                'timeInForce': 'GTE_GTC',
+                'reduceOnly': 'True'
+            },
+            {
+                'newClientOrderId': '6925e0cb-2d86-42af-875c-'+(Math.random() + 1).toString(36).substring(7),
+                'symbol':params.symbol??"LTCUSDT",
+                'type': 'TAKE_PROFIT',
+                'quantity': params.quantity.toString(),
+                'price':params.tpPrice.toString(),
+                'side': (params.type=="sell"?"BUY":"SELL"),
+                'stopPrice': (params.tpPrice+0.10).toString(),
+                'timeInForce': 'GTE_GTC',
+                'reduceOnly': 'True'
+            }
+        ]);
+        console.log(response);
+        return response;
+    }
+
+    static async setLimitPosition(type:string,quantity:number,price:number,symbol:string="LTCUSDT"){
+        let response:any=null;
+        response = await this.binance.futuresMultipleOrders([
+            {
+                'newClientOrderId': '467fba09-a286-43c3-a79a-'+(Math.random() + 1).toString(36).substring(7),
+                'symbol': symbol??"LTCUSDT",
+                'type': 'LIMIT',
+                'quantity': quantity.toString(),
+                'price':price.toString(),
+                'side': (type=="sell"?"SELL":"BUY"),
+                'timeInForce': 'GTC',
+            }
+        ]);
+        console.log(response);
+        return response;
+    }
+    static async setLimitTPSL(params:{quantity:string;slPrice:string;tpPrice:string;type:string;symbol?:any}){
+        let response:any = await this.binance.futuresMultipleOrders([
+            {
+                'newClientOrderId': '6925e0cb-2d86-42af-875c-'+(Math.random() + 1).toString(36).substring(7),
+                'symbol':params.symbol??"LTCUSDT",
+                'type': 'STOP',
+                'quantity': params.quantity,
+                'price':params.slPrice,
+                'side': (params.type=="sell"?"BUY":"SELL"),
+                'stopPrice': (params.slPrice),
+                'timeInForce': 'GTE_GTC',
+                'reduceOnly': 'True'
+            },
+            {
+                'newClientOrderId': '6925e0cb-2d86-42af-875c-'+(Math.random() + 1).toString(36).substring(7),
+                'symbol':params.symbol??"LTCUSDT",
+                'type': 'TAKE_PROFIT',
+                'quantity': params.quantity,
+                'price':params.tpPrice,
+                'side': (params.type=="sell"?"BUY":"SELL"),
+                'stopPrice': (params.tpPrice),
                 'timeInForce': 'GTE_GTC',
                 'reduceOnly': 'True'
             }

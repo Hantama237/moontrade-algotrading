@@ -9,15 +9,15 @@ var MoonChatBot = /** @class */ (function () {
         this.TelegramAPI.sendMessage(this.TelegramStoredChannelId, message);
     };
     MoonChatBot.sendPersonalMessage = function (message, chatId) {
-        if (chatId === void 0) { chatId = "1365494233"; }
+        if (chatId === void 0) { chatId = this.TelegramStoredChatId; }
         this.TelegramAPI.sendMessage(chatId, message);
     };
     MoonChatBot.getBot = function () {
         return this.TelegramAPI;
     };
-    MoonChatBot.TelegramStoredChatId = "1365494233";
-    MoonChatBot.TelegramStoredChannelId = "-1001590574256";
-    MoonChatBot.TelegramAPI = new Telegram("1704721857:AAERBOsRHczhD308G0XCVeWn6xqN8vWNI8s", { polling: true });
+    MoonChatBot.TelegramStoredChatId = process.env.TELEGRAM_TRADE_NOTIFICATION_CHAT_ID;
+    MoonChatBot.TelegramStoredChannelId = process.env.TELEGRAM_ALIVE_NOTIFICATION_CHAT_ID;
+    MoonChatBot.TelegramAPI = new Telegram(process.env.TELEGRAM_BOT_API_KEY + ":" + process.env.TELEGRAM_BOT_API_SECRET, { polling: true });
     return MoonChatBot;
 }());
 exports.MoonChatBot = MoonChatBot;

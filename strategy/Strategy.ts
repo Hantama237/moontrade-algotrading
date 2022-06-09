@@ -3,13 +3,15 @@ import { separateOHLCtoIndividualArray } from "../support/Binance";
 import { CandlePattern } from "../detector/CandlePattern";
 
 
-abstract class StrategyBase{
-    mainTimeframe:string;
-    otherTimeframe:Array<string>;
+class StrategyBase{
+    public mainTimeframe:string;
+    public otherTimeframe:Array<string>;
 
-    CandlesData:any = {};
-    OHLCsData:any = {};
-    IndicatorsData:any = {};
+    protected CandlesData:any = {};
+    protected OHLCsData:any = {};
+    protected IndicatorsData:any = {};
+    protected riskFiat = NaN;
+    protected rewardRatio = NaN;
 
     constructor(mainTimeframe:string,otherTimeframe:Array<string>){
         this.mainTimeframe = mainTimeframe;
@@ -46,20 +48,56 @@ abstract class StrategyBase{
         };
     }
     public getIndicatorInfo(){}
-    public generateSignal(entry:boolean,type:string):{entry:boolean,type:string,message:string}{
+    protected getCurrentIndex(){
+        return this.CandlesData[this.mainTimeframe].length-1;
+    }
+    public getTakeProfitAndStopLoss(type:string,atrMultiplier:number=3){
+        let index = this.CandlesData[this.mainTimeframe].length-1;
+        let atr = this.IndicatorsData[this.mainTimeframe]["atr"][index];
+        let currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
+        let slPrice:number = Math.abs((atr * atrMultiplier) + (type=="sell"?currentPrice:0)-((type=="buy"?currentPrice:0)));
+        let tpPrice:number = Math.abs((atr * atrMultiplier * this.rewardRatio) + (type=="buy"?currentPrice:0)-((type=="sell"?currentPrice:0)));
+        return {
+            "tp":tpPrice.toFixed(2),
+            "sl":slPrice.toFixed(2)
+        };
+    }
+    public getPositionSize(){
+        let index = this.CandlesData[this.mainTimeframe].length-1;
+        let currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
+        let positionSize:number = (this.riskFiat/Math.abs(parseFloat(this.getTakeProfitAndStopLoss("buy").sl) - parseFloat(currentPrice)) * currentPrice)/currentPrice;
+        return positionSize.toFixed(2);
+    }
+
+    public generateSignal(entry:boolean,type:string):{entry:boolean,size:string,tp:string,sl:string,entryPrice:number,type:string,message:string}{
+        let entryPrice = this.getOHLCbyIndex(this.getCurrentIndex()).close;
+        let positionSize = this.getPositionSize();
+        let TPSL = this.getTakeProfitAndStopLoss(type)
         if(entry)
         return {
             "entry":entry,
+            "entryPrice":entryPrice,
             "type":type,
+            "size":positionSize,
+            "tp":TPSL.tp,
+            "sl":TPSL.sl,
+
             "message":
                 "======= "+(type=="sell"?"SELL":"BUY")+" =======\n"
-                +this.getIndicatorInfo()+
+                +this.getIndicatorInfo()+"\n"+
+                "size:"+positionSize+"\n"+
+                "tp:"+TPSL.tp+"\n"+
+                "sl:"+TPSL.sl+"\n"+
                 "Entry "+type+" potential, pattern detected"
         };
         else
         return {
             "entry":entry,
+            "entryPrice":this.getOHLCbyIndex(this.getCurrentIndex()).close,
             "type":type,
+            "size":positionSize,
+            "tp":TPSL.tp,
+            "sl":TPSL.sl,
             "message":
             this.getIndicatorInfo()+
             "No entry potential"
@@ -68,11 +106,11 @@ abstract class StrategyBase{
     public exitAfterCandles(){
         return -1;
     }
+
     
 }
 export class StrategyBaseSimplified extends StrategyBase{
-    private riskFiat = 1;
-    private rewardRatio = 1.5;
+    
 
     constructor(timeframe="1h",riskFiat:number,rewardRatio:number){
         super(timeframe,[]);
@@ -94,23 +132,6 @@ export class StrategyBaseSimplified extends StrategyBase{
 
     protected checkEntry(){}
 
-    public getTakeProfitAndStopLoss(type:string,atrMultiplier:number=3){
-        let index = this.CandlesData[this.mainTimeframe].length-1;
-        let atr = this.IndicatorsData[this.mainTimeframe]["atr"][index];
-        let currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
-        let slPrice:number = Math.abs((atr * atrMultiplier) + (type=="sell"?currentPrice:0)-((type=="buy"?currentPrice:0)));
-        let tpPrice:number = Math.abs((atr * atrMultiplier * this.rewardRatio) + (type=="buy"?currentPrice:0)-((type=="sell"?currentPrice:0)));
-        return {
-            "tp":tpPrice.toFixed(2),
-            "sl":slPrice.toFixed(2)
-        };
-    }
-    public getPositionSize(){
-        let index = this.CandlesData[this.mainTimeframe].length-1;
-        let currentPrice = this.OHLCsData[this.mainTimeframe].close[index];
-        let positionSize:number = (this.riskFiat/Math.abs(parseFloat(this.getTakeProfitAndStopLoss("buy").sl) - parseFloat(currentPrice)) * currentPrice)/currentPrice;
-        return positionSize.toFixed(2);
-    }
 
     protected async addIndicator(name:string,options:any){
         switch (name) {
@@ -118,6 +139,11 @@ export class StrategyBaseSimplified extends StrategyBase{
                 //options: length
                 this.initiateIndicatorsObject(this.mainTimeframe,"ema");
                 this.IndicatorsData[this.mainTimeframe]["ema"][options.length] = await Tulind.getEMA(options.length,this.OHLCsData[this.mainTimeframe].close);
+                break;
+            case "emaold":
+                //options: length
+                this.initiateIndicatorsObject(this.mainTimeframe,"ema");
+                this.IndicatorsData[this.mainTimeframe]["ema"][options.length] = await Tulind.getEMAOld(options.length,this.OHLCsData[this.mainTimeframe].close);
                 break;
             case "atr":
                 //options: length
@@ -150,10 +176,18 @@ export class StrategyBaseSimplified extends StrategyBase{
                 //options: length, multiplier
                 this.initiateIndicatorsObject(this.mainTimeframe,"kc");
                 this.IndicatorsData[this.mainTimeframe]["kc"] = await Tulind.getKC(options.length,options.multiplier,this.OHLCsData[this.mainTimeframe].high,this.OHLCsData[this.mainTimeframe].close,this.OHLCsData[this.mainTimeframe].low);
+            case "dc":
+                //options: length, percentage
+                this.initiateIndicatorsObject(this.mainTimeframe,"dc");
+                this.IndicatorsData[this.mainTimeframe]["dc"] = await Tulind.getDC(options.length,options.percentage,this.OHLCsData[this.mainTimeframe].close);
             case "chandelierexit":
                 //options: length, multiplier
                 this.initiateIndicatorsObject(this.mainTimeframe,"chandelierexit");
                 this.IndicatorsData[this.mainTimeframe]["chandelierexit"] = await Tulind.getChandelierExit(options.length,options.multiplier,this.OHLCsData[this.mainTimeframe].high,this.OHLCsData[this.mainTimeframe].close,this.OHLCsData[this.mainTimeframe].low);
+            case "adx":
+                //options: length
+                this.initiateIndicatorsObject(this.mainTimeframe,"adx");
+                this.IndicatorsData[this.mainTimeframe]["adx"] = await Tulind.getADX(options.length,this.OHLCsData[this.mainTimeframe].high,this.OHLCsData[this.mainTimeframe].low,this.OHLCsData[this.mainTimeframe].close);
             default:
                 break;
         }
@@ -164,9 +198,7 @@ export class StrategyBaseSimplified extends StrategyBase{
         else 
             return this.IndicatorsData[this.mainTimeframe][name][index];
     }
-    protected getCurrentIndex(){
-        return this.CandlesData[this.mainTimeframe].length-1;
-    }
+
 }
 //==== TEMPLATE ====//
 export class StrategyTemplate extends StrategyBase{
@@ -304,7 +336,7 @@ export class StrategySimplifiedTemplate extends StrategyBaseSimplified{
 export class StrategyTestIndicator extends StrategyBaseSimplified{
     constructor(){
         //set timeframe, risk in fiat, reward ratio (1:3)= 3 reward ratio 
-        super("5m",1,1.33);
+        super("5m",0.02,1.33);
     }
     public getIndicatorInfo(): string {
         let index = this.getCurrentIndex();
@@ -322,6 +354,7 @@ export class StrategyTestIndicator extends StrategyBaseSimplified{
         await super.addIndicator("chandelierexit",{"length":1,"multiplier":2});
     }
     protected async checkEntry() {
+        return this.generateSignal(true,"sell");
         let index = this.getCurrentIndex();
         let entryRequirements = [
             true,
@@ -346,7 +379,7 @@ export class StrategyTestIndicator extends StrategyBaseSimplified{
     }
     //get take profit and stoploss
     public getTakeProfitAndStopLoss(type: string): { tp: string; sl: string; } {
-        return super.getTakeProfitAndStopLoss(type,3) //3 is the multiplier, default method atr based, return ex: {tp:20.11,sl:30.11}
+        return super.getTakeProfitAndStopLoss(type,1) //3 is the multiplier, default method atr based, return ex: {tp:20.11,sl:30.11}
     }
     public getPositionSize():string {
         return super.getPositionSize(); // default method return ex: 12.30

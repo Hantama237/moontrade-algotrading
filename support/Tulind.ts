@@ -38,6 +38,14 @@ export class Tulind{
         return result;
         
     }
+    static async getADX(length:number,high:Array<number>,low:Array<number>,close:Array<number>){
+        let result:Array<number>=[];
+        TA.indicators.adx.indicator([high,low,close], [length], function (err: any, results: any) {
+            result = results[0] as Array<number>;
+        });
+        result = this.fillEmptyData(result,high.length);
+        return result;
+    }
     static async getRSI(length:number,data:Array<number>){
         let result:Array<number>=await TAJS.rsi(data,length);
         result = this.fillEmptyData(result,data.length);
@@ -65,6 +73,11 @@ export class Tulind{
     static async getKC(length:number, multiplier:number, high:Array<number>,close:Array<number>,low:Array<number>){   
         let result = await TAJS.keltner(this.convertData([high,close,low]),length,multiplier);
         result = this.fillEmptyData(result,high.length);
+        return result;
+    }
+    static async getDC(length:number,percentage:number,data:Array<number>){
+        let result = await TAJS.don(data,length,percentage);
+        result = this.fillEmptyData(result,data.length);
         return result;
     }
 

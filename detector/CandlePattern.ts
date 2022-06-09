@@ -53,4 +53,10 @@ export class CandlePattern{
     static isLongTail(data:any,reversed:boolean=false){
         return (reversed?(this.wickLen(data)>this.tailLen(data)):(this.wickLen(data)<this.tailLen(data)))
     }
+
+
+    static crossover(prev1:number,prev2:number,curr1:number,curr2:number,reversed:boolean=false){
+        if(!reversed)return (prev1 <= prev2 && curr1>curr2);
+        else return ((prev1 >= prev2 && curr1<curr2));
+    }
 }
