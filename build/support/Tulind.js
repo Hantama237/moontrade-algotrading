@@ -95,6 +95,19 @@ var Tulind = /** @class */ (function () {
             });
         });
     };
+    Tulind.getADX = function (length, high, low, close) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                result = [];
+                TA.indicators.adx.indicator([high, low, close], [length], function (err, results) {
+                    result = results[0];
+                });
+                result = this.fillEmptyData(result, high.length);
+                return [2 /*return*/, result];
+            });
+        });
+    };
     Tulind.getRSI = function (length, data) {
         return __awaiter(this, void 0, void 0, function () {
             var result;
@@ -160,6 +173,20 @@ var Tulind = /** @class */ (function () {
                     case 1:
                         result = _a.sent();
                         result = this.fillEmptyData(result, high.length);
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
+    Tulind.getDC = function (length, percentage, data) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, TAJS.don(data, length, percentage)];
+                    case 1:
+                        result = _a.sent();
+                        result = this.fillEmptyData(result, data.length);
                         return [2 /*return*/, result];
                 }
             });

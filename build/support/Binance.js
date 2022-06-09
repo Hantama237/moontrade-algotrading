@@ -96,7 +96,6 @@ var Binance = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.binance.futuresPositionRisk({ symbol: symbol, recvWindow: 100000000 })];
                     case 1:
                         response = _a.sent();
-                        console.log(response);
                         return [2 /*return*/, {
                                 "trade": Math.abs(response[0].positionAmt) > 0,
                                 "ammount": response[0].positionAmt,
@@ -179,6 +178,118 @@ var Binance = /** @class */ (function () {
             });
         });
     };
+    Binance.setLimitPositionWithTPSL = function (params) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0: return [4 /*yield*/, this.binance.futuresMultipleOrders([
+                            {
+                                'newClientOrderId': '467fba09-a286-43c3-a79a-' + (Math.random() + 1).toString(36).substring(7),
+                                'symbol': (_a = params.symbol) !== null && _a !== void 0 ? _a : "LTCUSDT",
+                                'type': 'LIMIT',
+                                'quantity': params.quantity.toString(),
+                                'price': params.price.toString(),
+                                'side': (params.type == "sell" ? "SELL" : "BUY"),
+                                'timeInForce': 'GTC'
+                            },
+                            {
+                                'newClientOrderId': '6925e0cb-2d86-42af-875c-' + (Math.random() + 1).toString(36).substring(7),
+                                'symbol': (_b = params.symbol) !== null && _b !== void 0 ? _b : "LTCUSDT",
+                                'type': 'STOP',
+                                'quantity': params.quantity.toString(),
+                                'price': params.slPrice.toString(),
+                                'side': (params.type == "sell" ? "BUY" : "SELL"),
+                                'stopPrice': (params.slPrice - 0.10).toString(),
+                                'timeInForce': 'GTE_GTC',
+                                'reduceOnly': 'True'
+                            },
+                            {
+                                'newClientOrderId': '6925e0cb-2d86-42af-875c-' + (Math.random() + 1).toString(36).substring(7),
+                                'symbol': (_c = params.symbol) !== null && _c !== void 0 ? _c : "LTCUSDT",
+                                'type': 'TAKE_PROFIT',
+                                'quantity': params.quantity.toString(),
+                                'price': params.tpPrice.toString(),
+                                'side': (params.type == "sell" ? "BUY" : "SELL"),
+                                'stopPrice': (params.tpPrice + 0.10).toString(),
+                                'timeInForce': 'GTE_GTC',
+                                'reduceOnly': 'True'
+                            }
+                        ])];
+                    case 1:
+                        response = _d.sent();
+                        console.log(response);
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    Binance.setLimitPosition = function (type, quantity, price, symbol) {
+        if (symbol === void 0) { symbol = "LTCUSDT"; }
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        response = null;
+                        return [4 /*yield*/, this.binance.futuresMultipleOrders([
+                                {
+                                    'newClientOrderId': '467fba09-a286-43c3-a79a-' + (Math.random() + 1).toString(36).substring(7),
+                                    'symbol': symbol !== null && symbol !== void 0 ? symbol : "LTCUSDT",
+                                    'type': 'LIMIT',
+                                    'quantity': quantity.toString(),
+                                    'price': price.toString(),
+                                    'side': (type == "sell" ? "SELL" : "BUY"),
+                                    'timeInForce': 'GTC'
+                                }
+                            ])];
+                    case 1:
+                        response = _a.sent();
+                        console.log(response);
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    Binance.setLimitTPSL = function (params) {
+        var _a, _b;
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0: return [4 /*yield*/, this.binance.futuresMultipleOrders([
+                            {
+                                'newClientOrderId': '6925e0cb-2d86-42af-875c-' + (Math.random() + 1).toString(36).substring(7),
+                                'symbol': (_a = params.symbol) !== null && _a !== void 0 ? _a : "LTCUSDT",
+                                'type': 'STOP',
+                                'quantity': params.quantity,
+                                'price': params.slPrice,
+                                'side': (params.type == "sell" ? "BUY" : "SELL"),
+                                'stopPrice': (params.slPrice),
+                                'timeInForce': 'GTE_GTC',
+                                'reduceOnly': 'True'
+                            },
+                            {
+                                'newClientOrderId': '6925e0cb-2d86-42af-875c-' + (Math.random() + 1).toString(36).substring(7),
+                                'symbol': (_b = params.symbol) !== null && _b !== void 0 ? _b : "LTCUSDT",
+                                'type': 'TAKE_PROFIT',
+                                'quantity': params.quantity,
+                                'price': params.tpPrice,
+                                'side': (params.type == "sell" ? "BUY" : "SELL"),
+                                'stopPrice': (params.tpPrice),
+                                'timeInForce': 'GTE_GTC',
+                                'reduceOnly': 'True'
+                            }
+                        ])];
+                    case 1:
+                        response = _c.sent();
+                        console.log(response);
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
     Binance.getHistoricalData = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _a, _b;
@@ -214,8 +325,8 @@ var Binance = /** @class */ (function () {
         });
     };
     Binance.binance = new BinanceAPI().options({
-        'APIKEY': process.env.API_KEY,
-        'APISECRET': process.env.API_SECRET,
+        'APIKEY': process.env.BINANCE_API_KEY,
+        'APISECRET': process.env.BINANCE_API_SECRET,
         'test': false
     });
     return Binance;

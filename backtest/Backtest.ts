@@ -1,6 +1,5 @@
-
+import { Chart } from "../support/Chart";
 var fs = require('fs');
-
 export class BacktestTool{
     static loadHistory(filename:string){
         let CandlesData:any = [];
@@ -17,7 +16,63 @@ export class BacktestTool{
         });
         return CandlesData;
     }
-    
+    static writeLoseLog(content:string){
+        let strings:string = "";
+        for(let i of content){
+            strings += JSON.stringify(i)+"\n";
+        }
+        fs.writeFile('./backtest/result/lose-log.txt', strings, (err:any) => {
+            if (err) {
+              console.error(err)
+              return
+            }
+        })
+    }
+    static writeWinLog(content:string){
+        let strings:string = "";
+        for(let i of content){
+            strings += JSON.stringify(i)+"\n";
+        }
+        fs.writeFile('./backtest/result/win-log.txt', strings, (err:any) => {
+            if (err) {
+              console.error(err)
+              return
+            }
+        })
+    }
+    static writeResultLog(content:string){
+        fs.writeFile('./backtest/result/result.txt', content, (err:any) => {
+            if (err) {
+              console.error(err)
+              return
+            }
+        })
+    }
+    static calculateMaxDrawDown(data:Array<number>){
+        if(data.length<1) return NaN;
+        let highest = data[0];
+        let drawdown = 0;
+        for(let i of data){
+            if(i>highest) highest = i;
+            let temp = Math.abs(highest-i);
+            if(temp>drawdown) drawdown = temp;
+        }
+        return drawdown;
+    }
+    static calculateMaxGain(data:Array<number>){
+        if(data.length<1) return NaN;
+        let lowest = data[0];
+        let gain = 0;
+        for(let i of data){
+            if(i<lowest) lowest = i;
+            let temp = Math.abs(i-lowest);
+            if(temp>gain) gain = temp;
+        }
+        return gain;
+    }
+    static calculateWinRate(win:number,loss:number){
+        return (win/(win+loss))*100;
+    }
 }
 
 export class Backtest{
@@ -44,14 +99,21 @@ export class Backtest{
     private countCandle = 0;
     // ======= TRACKING ======= //
     private profitInFiat = 0;
+    private profitLogData:Array<number> = [];
+    private profitLogLabels:Array<string> = [];
 
     private maxDrawdown = 0 ;
     private maxGain = 0;
+    private maxFee = 0;
+    private maxSize = 0;
+
+    private totalFee = 0;
     private winCount = 0;
     private loseCount = 0;
 
     private currentLogData:any = null;
     private loseLog:any = [];
+    private winLog:any = [];
     
     public constructor(strategy:any,loadOptions:
             {
@@ -63,6 +125,9 @@ export class Backtest{
         this.dateToLoad = loadOptions.dateToLoad;
         this.symbolToLoad = loadOptions.symbolToLoad;
         this.timeframeToLoad = loadOptions.timeframeToLoad;
+    }
+    private setTax(tax:number){
+        this.tax = tax;
     }
     private readHistory(symbol:string="LTCUSDT",timeframe:string,year:string,monthFrom:number,monthUntil:number){
         for(let i=monthFrom;i<=(monthUntil);i++){
@@ -76,10 +141,16 @@ export class Backtest{
             this.currentCandlesData[timeframe].push(this.allCandlesData.pop());
         }
     }
+    private appendLogData(){
+        this.profitLogData.push(this.profitInFiat);
+        this.profitLogLabels.push(this.currentLogData.date.substring(0,10));
+    }
     private async runStrategy(){
         let result  = await  this.strategy.updateData(this.currentCandlesData);
         let index = this.currentCandlesData[this.strategy.mainTimeframe].length-1;
+        let entry = false;
         if(result.entry && !this.position){
+            entry = result.entry;
             this.countCandle = 0;
             this.position = true;
             this.type = result.type;
@@ -87,23 +158,26 @@ export class Backtest{
             this.entryPrice = parseFloat(this.currentCandlesData[this.strategy.mainTimeframe][index][4]);
             this.takeProfit = parseFloat(this.strategy.getTakeProfitAndStopLoss(result.type).tp);
             this.stopLoss = parseFloat(this.strategy.getTakeProfitAndStopLoss(result.type).sl);
+            let date = new Date(parseInt(this.currentCandlesData[this.strategy.mainTimeframe][index][0]));
             this.currentLogData = {
-                "date":new Date(parseInt(this.currentCandlesData[this.strategy.mainTimeframe][index][0])).toLocaleString(),
+                "date":date.toLocaleString(),
+                "date_formated":date.getFullYear()+"-"+((date.getMonth()+1)>10?date.getMonth()+1:"0"+(date.getMonth()+1))+"-"+(date.getDate()>10?date.getDate():"0"+date.getDate())+" "+date.toLocaleTimeString(),
                 "close":this.currentCandlesData[this.strategy.mainTimeframe][index][4],
                 "type":result.type,
                 "tp":this.takeProfit,
                 "sl":this.stopLoss,
                 "indicator":this.strategy.getIndicatorInfo()
             };
+            this.maxSize = this.positionSize>this.maxSize?this.positionSize:this.maxSize;
         }
-        if(this.position){
+        if(this.position && !entry){
             let index = this.currentCandlesData[this.strategy.mainTimeframe].length-1;
             //time check
             this.countCandle++;
             let exitAfter = this.strategy.exitAfterCandles();
             if(exitAfter>0 && this.countCandle>exitAfter){
                 this.stopLoss = this.currentCandlesData[this.strategy.mainTimeframe][index][4];
-            }
+            } 
             //trailing check
             let trailing = this.strategy.checkTrailing(this.entryPrice,this.stopLoss,this.type);
             if(trailing.trailed){ 
@@ -119,32 +193,52 @@ export class Backtest{
             //price check
             let currentCandle = this.currentCandlesData[this.strategy.mainTimeframe][index];
             let winPrecentage = Math.abs(this.takeProfit-this.entryPrice)/this.entryPrice;
+            let currentFee = 0;
             if(this.type == "buy"){
                 if(currentCandle[2] >= this.takeProfit){
                     this.position=false;
-                    this.profitInFiat += ((winPrecentage * this.positionSize) - (this.positionSize * (this.tax+this.tax+this.tax*winPrecentage)));
+                    currentFee = (this.positionSize * (this.tax+this.tax+this.tax*winPrecentage));
+                    this.profitInFiat += ((winPrecentage * this.positionSize) - currentFee);
                     this.winCount++;
+                    this.appendLogData();
+                    this.winLog.push(this.currentLogData)
+                    this.maxFee = currentFee>this.maxFee?currentFee:this.maxFee;
+                    this.totalFee +=currentFee;
                 }else if(currentCandle[3] <= this.stopLoss){
                     this.position=false;
                     let losePrecentage = (this.stopLoss-this.entryPrice)/this.entryPrice;
-                    this.profitInFiat += ((losePrecentage * this.positionSize) - (this.positionSize * (this.tax+this.tax+this.tax*Math.abs(losePrecentage))));
-                    if(losePrecentage>=0){this.winCount++;}else{this.loseCount++;}
+                    currentFee = (this.positionSize * (this.tax+this.tax+this.tax*Math.abs(losePrecentage)));
+                    this.profitInFiat += ((losePrecentage * this.positionSize) - currentFee);
+                    if(losePrecentage>=0){this.winCount++; this.winLog.push(this.currentLogData)}else{this.loseCount++; this.loseLog.push(this.currentLogData)}
+                    this.appendLogData();
+                    this.maxFee = currentFee>this.maxFee?currentFee:this.maxFee;
+                    this.totalFee +=currentFee;
                 }
             }else if(this.type == "sell"){
                 if(currentCandle[3] <= this.takeProfit){
                     this.position=false;
-                    this.profitInFiat += ((winPrecentage * this.positionSize) - (this.positionSize * (this.tax+this.tax+this.tax*winPrecentage )));
+                    currentFee = (this.positionSize * (this.tax+this.tax+this.tax*winPrecentage));
+                    this.profitInFiat += ((winPrecentage * this.positionSize) - currentFee);
                     this.winCount++;
+                    this.appendLogData();
+                    this.winLog.push(this.currentLogData)
+                    this.maxFee = currentFee>this.maxFee?currentFee:this.maxFee;
+                    this.totalFee +=currentFee;
                 }else if(currentCandle[2] >= this.stopLoss){
                     this.position=false;
                     let losePrecentage = (this.entryPrice-this.stopLoss)/this.entryPrice;
-                    this.profitInFiat += ((losePrecentage * this.positionSize) - (this.positionSize * (this.tax+this.tax+this.tax*Math.abs(losePrecentage))));
-                    if(losePrecentage>=0){this.winCount++;}else{this.loseCount++;}
+                    currentFee = (this.positionSize * (this.tax+this.tax+this.tax*Math.abs(losePrecentage)))
+                    this.profitInFiat += ((losePrecentage * this.positionSize) - currentFee);
+                    if(losePrecentage>=0){this.winCount++; this.winLog.push(this.currentLogData)}else{this.loseCount++; this.loseLog.push(this.currentLogData)}
+                    this.appendLogData();
+                    this.maxFee = currentFee>this.maxFee?currentFee:this.maxFee;
+                    this.totalFee +=currentFee;
                 }
             }
         }
         this.maxDrawdown = this.maxDrawdown<this.profitInFiat?this.maxDrawdown:this.profitInFiat;
         this.maxGain = this.maxGain>this.profitInFiat?this.maxGain:this.profitInFiat;
+        
     }
     private async streamRunner(){
         while(this.allCandlesData.length>0){
@@ -157,6 +251,7 @@ export class Backtest{
     }
     public async start(){
         //LOAD
+        console.time('Execution time: ');
         for(let date of this.dateToLoad){
             this.readHistory(this.symbolToLoad,this.timeframeToLoad,date.year,date.month.from,date.month.until);
         }
@@ -167,9 +262,20 @@ export class Backtest{
         await this.runStrategy();
         await this.streamRunner();
         //RESULT
-        console.log("\nWin: "+this.winCount+", Lost: "+this.loseCount);
-        console.log("Profit : "+this.profitInFiat.toFixed(2)+" %");
-        console.log("Max Drawdown: "+this.maxDrawdown.toFixed(2)+" %"+", Max Gain: "+this.maxGain.toFixed(2)+" %");
+        //console.info(this.loseLog);
+        let result = "\n\nWin: "+this.winCount+", Lost: "+this.loseCount+", Win Rate: "+BacktestTool.calculateWinRate(this.winCount,this.loseCount).toFixed(2)+"%\n"+
+                     "Profit : "+this.profitInFiat.toFixed(2)+" %\n"+
+                     "Max Drawdown: -"+BacktestTool.calculateMaxDrawDown(this.profitLogData).toFixed(2)+" %"+", Max Gain: "+BacktestTool.calculateMaxGain(this.profitLogData).toFixed(2)+" %\n"+
+                     "Max Fee: "+(this.maxFee).toFixed(3)+" %, Max Position Size: "+this.maxSize.toFixed(2)+" %, Total Fee: "+this.totalFee.toFixed(3)+" %";
+        let chartResult = "Win: "+this.winCount+", Lost: "+this.loseCount+", Win Rate: "+BacktestTool.calculateWinRate(this.winCount,this.loseCount).toFixed(2)+"%, "+
+                        "Profit : "+this.profitInFiat.toFixed(2)+" %, "+
+                        "Max Drawdown: -"+BacktestTool.calculateMaxDrawDown(this.profitLogData).toFixed(2)+" %"+", Max Gain: "+BacktestTool.calculateMaxGain(this.profitLogData).toFixed(2)+" %"
+        Chart.generateEquityChart(this.profitLogData,this.profitLogLabels,chartResult);
+        BacktestTool.writeLoseLog(this.loseLog);
+        BacktestTool.writeWinLog(this.winLog);
+        console.log(result);
+        console.timeEnd('Execution time: ');
+        console.log('\n\n');
     }
     
 }

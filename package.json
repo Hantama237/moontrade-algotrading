@@ -3,6 +3,8 @@
     "dependencies": {
         "@types/node": "^14.18.13",
         "candlestick": "0.0.3",
+        "canvas": "^2.9.1",
+        "chart.js": "^3.7.1",
         "deasync": "^0.1.26",
         "dotenv": "^16.0.1",
         "node-binance-api": "^0.13.1",
@@ -17,9 +19,9 @@
         "src/index.d.ts"
     ],
     "scripts": {
-        "start": "ts-node index",
-        "build": "tsc index --outDir build && javascript-obfuscator build/strategy --output build/strategy --compact true --self-defending false",
-        "start-production": "node build/index.js",
+        "start-dev": "ts-node autotrade/index",
+        "build": "tsc autotrade/index --outDir build && javascript-obfuscator build/strategy --output build/strategy --compact true --self-defending false",
+        "start": "node build/autotrade/index.js",
         "backtest": "ts-node backtest/index"
     },
     "devDependencies": {

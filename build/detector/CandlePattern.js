@@ -54,6 +54,13 @@ var CandlePattern = /** @class */ (function () {
         if (reversed === void 0) { reversed = false; }
         return (reversed ? (this.wickLen(data) > this.tailLen(data)) : (this.wickLen(data) < this.tailLen(data)));
     };
+    CandlePattern.crossover = function (prev1, prev2, curr1, curr2, reversed) {
+        if (reversed === void 0) { reversed = false; }
+        if (!reversed)
+            return (prev1 <= prev2 && curr1 > curr2);
+        else
+            return ((prev1 >= prev2 && curr1 < curr2));
+    };
     return CandlePattern;
 }());
 exports.CandlePattern = CandlePattern;
