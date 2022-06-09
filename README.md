@@ -41,3 +41,5 @@ To start the backtest
 npm run backtest
 ```
 
+Example `./backtest/result/profit-chart.png` backtest result on `1h` timeframe strategy in `./strategy/MyStrategy.ts`.
+![](https://raw.githubusercontent.com/Hantama237/moontrade-algotrading/main/backtest/result/profit-chart.png)
