@@ -17,6 +17,8 @@ And then setup the `.env` file using your binance API key, and Telegram API key 
 - Strategy obfuscator, all `.js` file under `./build/strategy/` folder is obfuscated after build command.
 - Hyper parameter optimization to optimize strategy indicator parameters (coming soon).
 - Multi strategy support, trade using more than one strategy in multiple cryptocurrency (coming soon).
+- Monte Carlo simulation to measure worst trading chance in the future (coming soon).
+- Probability Cone to measure live trading peformance and help to decide when to stop the trading (coming soon).
 
 ## Automated Trading
 Automated strategy configuration located in `./index.ts` this configuration is using strategy located in `./strategy/MyStrategy.ts`, which already contain free `1h` timeframe strategy that I have developed. You can also backtest this strategy by following the backtest section below. Please use this at your own risk. I am not responsible for any risk in using this moontrade-algotrading program.
